@@ -6,8 +6,8 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/srikbhas/Hello-World-ArgoCD.git
-    targetRevision: HEAD
+    repoURL: https://github.com/SrikanthBhaskara/hello-world-ArgoCD.git
+    targetRevision: main
     path: argocd/projects
   destination:
     server: https://kubernetes.default.svc
