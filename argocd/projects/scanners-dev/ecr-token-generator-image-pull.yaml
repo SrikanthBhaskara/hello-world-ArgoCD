@@ -1,0 +1,9 @@
+apiVersion: generators.external-secrets.io/v1alpha1
+kind: ECRAuthorizationToken
+metadata:
+  name: bitdefender-image-pull-ecr-token
+  namespace: mars-scanner-dev
+  annotations:
+    argocd.argoproj.io/sync-wave: "-2"
+spec:
+  region: us-west-2

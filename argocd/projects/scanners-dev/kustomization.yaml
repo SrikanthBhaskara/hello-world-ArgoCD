@@ -2,4 +2,9 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
+  - namespace.yaml
+  - ecr-token-generator-argocd.yaml
+  - argocd-ecr-helm-repo-externalsecret.yaml
+  - ecr-token-generator-image-pull.yaml
+  - image-pull-secret-externalsecret.yaml
   - bitdefender-application.yaml

@@ -20,6 +20,8 @@ spec:
           repository: 776389595347.dkr.ecr.us-west-2.amazonaws.com/ares/bitdefender
           tag: local-vm-setup-gcp
           pullPolicy: IfNotPresent
+        imagePullSecrets:
+          - name: ecr-regcred
         replicas: 1
         certManager:
           enabled: true
