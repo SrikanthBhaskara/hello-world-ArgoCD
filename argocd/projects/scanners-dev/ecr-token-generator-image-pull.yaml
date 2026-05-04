@@ -11,13 +11,13 @@ spec:
     secretRef:
       accessKeyIDSecretRef:
         name: aws-ares-creds
-        namespace: external-secrets
+        namespace: mars
         key: access-key
       secretAccessKeySecretRef:
         name: aws-ares-creds
-        namespace: external-secrets
+        namespace: mars
         key: secret-access-key
       sessionTokenSecretRef:
         name: aws-ares-creds
-        namespace: external-secrets
+        namespace: mars
         key: session-token

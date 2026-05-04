@@ -11,13 +11,13 @@ spec:
     secretRef:
       accessKeyIDSecretRef:
         name: aws-ares-creds
-        namespace: external-secrets
+        namespace: argocd
         key: access-key
       secretAccessKeySecretRef:
         name: aws-ares-creds
-        namespace: external-secrets
+        namespace: argocd
         key: secret-access-key
       sessionTokenSecretRef:
         name: aws-ares-creds
-        namespace: external-secrets
+        namespace: argocd
         key: session-token

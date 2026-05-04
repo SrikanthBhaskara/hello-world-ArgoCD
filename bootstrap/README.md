@@ -9,19 +9,26 @@ External Secrets Operator
 cert-manager
 ```
 
-## 1. Create AWS Credentials Secret
+## 1. Create AWS Credentials Secrets
 
 Do not commit real AWS keys to Git.
 
-For temporary AWS credentials:
+For temporary AWS credentials, create the same Secret in all namespaces that need AWS access:
+
+- `external-secrets` for `ClusterSecretStore/aws-ares`
+- `argocd` for the ArgoCD ECR Helm repository token
+- `mars` for the Kubernetes Docker image pull token
 
 ```bash
-sudo kubectl create secret generic aws-ares-creds \
-  -n external-secrets \
-  --from-literal=access-key="$AWS_ACCESS_KEY_ID" \
-  --from-literal=secret-access-key="$AWS_SECRET_ACCESS_KEY" \
-  --from-literal=session-token="$AWS_SESSION_TOKEN" \
-  --dry-run=client -o yaml | sudo kubectl apply -f -
+for namespace in external-secrets argocd mars; do
+  sudo kubectl create namespace "$namespace" --dry-run=client -o yaml | sudo kubectl apply -f -
+  sudo kubectl create secret generic aws-ares-creds \
+    -n "$namespace" \
+    --from-literal=access-key="$AWS_ACCESS_KEY_ID" \
+    --from-literal=secret-access-key="$AWS_SECRET_ACCESS_KEY" \
+    --from-literal=session-token="$AWS_SESSION_TOKEN" \
+    --dry-run=client -o yaml | sudo kubectl apply -f -
+done
 ```
 
 ## 2. Apply ClusterSecretStore

@@ -179,23 +179,43 @@ secretsmanager:DescribeSecret
 ecr:GetAuthorizationToken
 ```
 
-For dev testing on the GCP VM cluster, the simplest bootstrap is to create an AWS credentials Secret in the `external-secrets` namespace.
+For dev testing on the GCP VM cluster, the simplest bootstrap is to create an AWS credentials Secret in each namespace that needs AWS access.
 
-Create the Secret:
+Create the Secret in:
+
+```text
+external-secrets
+argocd
+mars
+```
+
+`external-secrets/aws-ares-creds` is used by `ClusterSecretStore/aws-ares`.
+
+`argocd/aws-ares-creds` is used by the ArgoCD ECR Helm repository token generator.
+
+`mars/aws-ares-creds` is used by the Kubernetes Docker image pull token generator.
+
+Create the Secrets:
 
 ```powershell
-kubectl create secret generic aws-ares-creds `
-  -n external-secrets `
-  --from-literal=access-key=<AWS_ACCESS_KEY_ID> `
-  --from-literal=secret-access-key=<AWS_SECRET_ACCESS_KEY>
+foreach ($namespace in @("external-secrets", "argocd", "mars")) {
+  kubectl create namespace $namespace --dry-run=client -o yaml | kubectl apply -f -
+  kubectl create secret generic aws-ares-creds `
+    -n $namespace `
+    --from-literal=access-key=<AWS_ACCESS_KEY_ID> `
+    --from-literal=secret-access-key=<AWS_SECRET_ACCESS_KEY> `
+    --from-literal=session-token=<AWS_SESSION_TOKEN> `
+    --dry-run=client -o yaml | kubectl apply -f -
+}
 ```
 
 Do not commit real AWS keys to Git.
 
-The ECR token generator manifests reference this same Secret:
+The ECR token generator manifests reference this Secret in their own namespaces:
 
 ```text
-external-secrets/aws-ares-creds
+argocd/aws-ares-creds
+mars/aws-ares-creds
 ```
 
 This lets ESO generate:
@@ -203,16 +223,6 @@ This lets ESO generate:
 ```text
 argocd/bitdefender-ecr-helm-repo
 mars/ecr-regcred
-```
-
-If temporary session credentials are used, include the session token:
-
-```powershell
-kubectl create secret generic aws-ares-creds `
-  -n external-secrets `
-  --from-literal=access-key=<AWS_ACCESS_KEY_ID> `
-  --from-literal=secret-access-key=<AWS_SECRET_ACCESS_KEY> `
-  --from-literal=session-token=<AWS_SESSION_TOKEN>
 ```
 
 ## 6. Create ClusterSecretStore/aws-ares
@@ -275,16 +285,7 @@ spec:
             key: session-token
 ```
 
-Before applying it, create the AWS credentials Secret:
-
-```powershell
-kubectl create secret generic aws-ares-creds `
-  -n external-secrets `
-  --from-literal=access-key="$env:AWS_ACCESS_KEY_ID" `
-  --from-literal=secret-access-key="$env:AWS_SECRET_ACCESS_KEY" `
-  --from-literal=session-token="$env:AWS_SESSION_TOKEN" `
-  --dry-run=client -o yaml | kubectl apply -f -
-```
+Before applying it, create the AWS credentials Secrets as shown in Step 5.
 
 Apply:
 
