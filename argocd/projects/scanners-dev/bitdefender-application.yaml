@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: 776389595347.dkr.ecr.us-west-2.amazonaws.com
     chart: sib/helmcharts/ares/bitdefender-scanner
-    targetRevision: 0.1.0
+    targetRevision: 0.1.2
     helm:
       releaseName: bitdefender-scanner-dev
       valuesObject:
@@ -18,13 +18,13 @@ spec:
         fullnameOverride: bitdefender
         image:
           repository: 776389595347.dkr.ecr.us-west-2.amazonaws.com/ares/bitdefender
-          tag: local-vm-setup-gcp
+          tag: master-202605011451-d67b5efa
           pullPolicy: IfNotPresent
         imagePullSecrets:
           - name: ecr-regcred
         replicas: 1
         certManager:
-          enabled: false
+          enabled: true
           issuerName: default-ca
         externalSecrets:
           enabled: true
@@ -32,6 +32,9 @@ spec:
           secretStoreKind: ClusterSecretStore
           keystoreSecretKey: dev/scanners/bitdefender/keystore.pass
           productIdSecretKey: dev/scanners/bitdefender/bitdefender.product.id
+          awsCredentialsSecretKey: dev/scanners/bitdefender/aws-credentials
+          awsCredentialsAccessKeyProperty: accessKeyId
+          awsCredentialsSecretKeyProperty: secretAccessKey
         resources:
           requests:
             cpu: 500m
