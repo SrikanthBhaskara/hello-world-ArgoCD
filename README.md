@@ -32,10 +32,10 @@ kubectl apply -f .\argocd\application-root.yaml
 
 The root app applies `argocd/projects/scanners-dev`, which creates:
 
-- `Namespace/mars-scanner-dev`
+- `Namespace/mars`
 - ECR token generators for ArgoCD Helm access and Docker image pull access
 - `ExternalSecret/bitdefender-ecr-helm-repo` in `argocd`
-- `ExternalSecret/ecr-regcred` in `mars-scanner-dev`
+- `ExternalSecret/ecr-regcred` in `mars`
 - `Application/bitdefender-scanner-dev`
 
 So no manual ECR token secret creation is needed for normal testing.
@@ -67,7 +67,7 @@ The Helm chart deploys this Docker image:
 
 ```powershell
 kubectl get application bitdefender-scanner-dev -n argocd
-kubectl get pods -n mars-scanner-dev
-kubectl get externalsecret -n mars-scanner-dev
-kubectl get certificate -n mars-scanner-dev
+kubectl get pods -n mars
+kubectl get externalsecret -n mars
+kubectl get certificate -n mars
 ```

@@ -101,7 +101,7 @@ With ESO, the Git repo stores only references and templates. ESO creates the rea
 The `hello-world-ArgoCD` test repo now manages the Bitdefender-specific pieces:
 
 ```text
-Namespace: mars-scanner-dev
+Namespace: mars
 ArgoCD ECR Helm repository secret
 Docker image pull secret: ecr-regcred
 Bitdefender ArgoCD Application
@@ -172,7 +172,7 @@ The ArgoCD test manifests also use ESO to create:
 
 ```text
 argocd/bitdefender-ecr-helm-repo
-mars-scanner-dev/ecr-regcred
+mars/ecr-regcred
 ```
 
 ### ESO Resources Used
@@ -358,9 +358,9 @@ If Secrets Manager access is broken, the Bitdefender `ExternalSecret` will not c
 Verify after sync:
 
 ```powershell
-kubectl get externalsecret -n mars-scanner-dev
-kubectl describe externalsecret bitdefender-secrets -n mars-scanner-dev
-kubectl get secret bitdefender-secrets -n mars-scanner-dev
+kubectl get externalsecret -n mars
+kubectl describe externalsecret bitdefender-secrets -n mars
+kubectl get secret bitdefender-secrets -n mars
 ```
 
 Expected:
@@ -408,16 +408,16 @@ kubectl get externalsecret bitdefender-ecr-helm-repo -n argocd
 kubectl describe externalsecret bitdefender-ecr-helm-repo -n argocd
 kubectl get secret bitdefender-ecr-helm-repo -n argocd
 
-kubectl get externalsecret ecr-regcred -n mars-scanner-dev
-kubectl describe externalsecret ecr-regcred -n mars-scanner-dev
-kubectl get secret ecr-regcred -n mars-scanner-dev
+kubectl get externalsecret ecr-regcred -n mars
+kubectl describe externalsecret ecr-regcred -n mars
+kubectl get secret ecr-regcred -n mars
 ```
 
 Expected:
 
 ```text
 argocd/bitdefender-ecr-helm-repo exists
-mars-scanner-dev/ecr-regcred exists
+mars/ecr-regcred exists
 ExternalSecret status shows SecretSynced=True
 ```
 
@@ -478,29 +478,29 @@ Check generated secrets:
 
 ```powershell
 kubectl get secret bitdefender-ecr-helm-repo -n argocd
-kubectl get secret ecr-regcred -n mars-scanner-dev
-kubectl get secret bitdefender-secrets -n mars-scanner-dev
+kubectl get secret ecr-regcred -n mars
+kubectl get secret bitdefender-secrets -n mars
 ```
 
 Check pod:
 
 ```powershell
-kubectl get pods -n mars-scanner-dev
-kubectl describe pod -n mars-scanner-dev -l app.kubernetes.io/name=bitdefender-scanner
-kubectl logs -n mars-scanner-dev deployment/bitdefender --tail=100
+kubectl get pods -n mars
+kubectl describe pod -n mars -l app.kubernetes.io/name=bitdefender-scanner
+kubectl logs -n mars deployment/bitdefender --tail=100
 ```
 
 ## 7. Common Failure Mapping
 
 | Symptom | Likely Missing Piece | What To Check |
 |---|---|---|
-| `no matches for kind ExternalSecret` | ESO CRDs missing | `kubectl get crd externalsecrets.external-secrets.io` |
+| `no matches for kind ExternalSecret` | ESO CRDs missing or wrong API version | `kubectl get crd externalsecrets.external-secrets.io` |
 | `no matches for kind ECRAuthorizationToken` | ESO generator CRD missing | `kubectl get crd ecrauthorizationtokens.generators.external-secrets.io` |
 | `ClusterSecretStore aws-ares not found` | AWS secret store missing | `kubectl get clustersecretstore aws-ares` |
 | `ExternalSecret not synced` | ESO AWS access or AWS secret path issue | `kubectl describe externalsecret ...` |
 | ArgoCD cannot pull chart | ECR Helm repo secret missing or bad token | `kubectl get secret bitdefender-ecr-helm-repo -n argocd` |
-| Pod `ImagePullBackOff` | Docker pull secret missing or expired | `kubectl get secret ecr-regcred -n mars-scanner-dev` |
-| Certificate not ready | cert-manager or issuer issue | `kubectl describe certificate -n mars-scanner-dev` |
+| Pod `ImagePullBackOff` | Docker pull secret missing or expired | `kubectl get secret ecr-regcred -n mars` |
+| Certificate not ready | cert-manager or issuer issue | `kubectl describe certificate -n mars` |
 | `issuer default-ca not found` | Wrong issuer name | `kubectl get clusterissuer` |
 
 ## 8. What Is Still Bootstrap

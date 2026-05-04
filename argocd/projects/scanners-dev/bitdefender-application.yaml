@@ -14,7 +14,7 @@ spec:
     helm:
       releaseName: bitdefender-scanner-dev
       valuesObject:
-        namespace: mars-scanner-dev
+        namespace: mars
         fullnameOverride: bitdefender
         image:
           repository: 776389595347.dkr.ecr.us-west-2.amazonaws.com/ares/bitdefender
@@ -24,7 +24,7 @@ spec:
           - name: ecr-regcred
         replicas: 1
         certManager:
-          enabled: true
+          enabled: false
           issuerName: default-ca
         externalSecrets:
           enabled: true
@@ -44,7 +44,7 @@ spec:
             memory: 4Gi
   destination:
     server: https://kubernetes.default.svc
-    namespace: mars-scanner-dev
+    namespace: mars
   syncPolicy:
     automated:
       prune: true

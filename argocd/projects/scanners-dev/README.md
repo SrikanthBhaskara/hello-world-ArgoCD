@@ -6,7 +6,7 @@ The root app in this repo points to `argocd/projects`. That kustomization includ
 
 - `bitdefender-scanner-dev`
 
-The app deploys into `mars-scanner-dev` so testing is isolated from the real `mars` namespace used by the planned `gcp-dev` deployment.
+The app deploys into `mars` so testing is isolated from the real `mars` namespace used by the planned `gcp-dev` deployment.
 
 Before syncing this app, confirm these dependencies exist in the test GCP cluster:
 

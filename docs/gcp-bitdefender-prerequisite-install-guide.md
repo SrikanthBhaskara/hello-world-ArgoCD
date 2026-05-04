@@ -18,8 +18,8 @@ hello-world-ArgoCD/argocd/projects/scanners-dev/
 | 3 | External Secrets Operator | Creates Kubernetes Secrets from AWS Secrets Manager and ECR auth tokens. |
 | 4 | AWS access for ESO | Allows ESO to call AWS Secrets Manager and ECR. |
 | 5 | `ClusterSecretStore/aws-ares` | Tells ESO how to read AWS Secrets Manager. |
-| 6 | cert-manager | Creates TLS certificates for the Bitdefender HTTPS endpoint. |
-| 7 | `ClusterIssuer/default-ca` | Issuer used by cert-manager for Bitdefender certificates. |
+| 6 | cert-manager | Creates TLS certificates for the Bitdefender HTTPS endpoint. Temporarily skipped while `certManager.enabled=false` in the test app. |
+| 7 | `ClusterIssuer/default-ca` | Issuer used by cert-manager for Bitdefender certificates. Temporarily skipped while `certManager.enabled=false` in the test app. |
 | 8 | ECR Docker image | Bitdefender container image. |
 | 9 | ECR Helm chart | Bitdefender Helm chart consumed by ArgoCD. |
 
@@ -46,10 +46,19 @@ Install in this order:
 4. Install External Secrets Operator
 5. Configure AWS credentials for ESO
 6. Create ClusterSecretStore/aws-ares
-7. Install cert-manager
-8. Create ClusterIssuer/default-ca
+7. Optional for current test: install cert-manager
+8. Optional for current test: create ClusterIssuer/default-ca
 9. Apply Bitdefender ArgoCD root app
 ```
+
+Current temporary test setting:
+
+```yaml
+certManager:
+  enabled: false
+```
+
+Because of this setting, `cert-manager` and `ClusterIssuer/default-ca` can be skipped for the first ArgoCD sync test. Re-enable cert-manager before promoting this pattern to the real `gcp-dev` deployment.
 
 ## 1. Verify GCP VM Cluster Access
 
@@ -204,7 +213,7 @@ bootstrap/clustersecretstore-aws-ares.yaml
 For long-lived access key credentials:
 
 ```yaml
-apiVersion: external-secrets.io/v1beta1
+apiVersion: external-secrets.io/v1
 kind: ClusterSecretStore
 metadata:
   name: aws-ares
@@ -228,7 +237,7 @@ spec:
 For temporary AWS session credentials, use:
 
 ```yaml
-apiVersion: external-secrets.io/v1beta1
+apiVersion: external-secrets.io/v1
 kind: ClusterSecretStore
 metadata:
   name: aws-ares
@@ -407,16 +416,16 @@ Verify ESO-created secrets:
 ```powershell
 kubectl get externalsecret -A
 kubectl get secret bitdefender-ecr-helm-repo -n argocd
-kubectl get secret ecr-regcred -n mars-scanner-dev
-kubectl get secret bitdefender-secrets -n mars-scanner-dev
+kubectl get secret ecr-regcred -n mars
+kubectl get secret bitdefender-secrets -n mars
 ```
 
 Verify pod:
 
 ```powershell
-kubectl get pods -n mars-scanner-dev
-kubectl describe pod -n mars-scanner-dev -l app.kubernetes.io/name=bitdefender-scanner
-kubectl logs -n mars-scanner-dev deployment/bitdefender --tail=100
+kubectl get pods -n mars
+kubectl describe pod -n mars -l app.kubernetes.io/name=bitdefender-scanner
+kubectl logs -n mars deployment/bitdefender --tail=100
 ```
 
 ## Common Failures
@@ -428,8 +437,8 @@ kubectl logs -n mars-scanner-dev deployment/bitdefender --tail=100
 | `ClusterSecretStore aws-ares not found` | Secret store missing | Apply `clustersecretstore-aws-ares.yaml`. |
 | `ExternalSecret not synced` | AWS permission or secret path issue | Check `kubectl describe externalsecret ...`. |
 | ArgoCD cannot pull Helm chart | ECR Helm repo secret not created or token invalid | Check `bitdefender-ecr-helm-repo` in `argocd`. |
-| Pod `ImagePullBackOff` | `ecr-regcred` missing/invalid | Check `ecr-regcred` in `mars-scanner-dev`. |
-| Certificate not ready | cert-manager or issuer issue | Check `kubectl describe certificate -n mars-scanner-dev`. |
+| Pod `ImagePullBackOff` | `ecr-regcred` missing/invalid | Check `ecr-regcred` in `mars`. |
+| Certificate not ready | cert-manager or issuer issue | Check `kubectl describe certificate -n mars`. |
 
 ## Quick Full Verification
 
@@ -447,5 +456,5 @@ kubectl get clusterissuer default-ca
 
 kubectl get application bitdefender-scanner-dev -n argocd
 kubectl get externalsecret -A
-kubectl get pods -n mars-scanner-dev
+kubectl get pods -n mars
 ```
