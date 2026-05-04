@@ -7,3 +7,17 @@ metadata:
     argocd.argoproj.io/sync-wave: "-2"
 spec:
   region: us-west-2
+  auth:
+    secretRef:
+      accessKeyIDSecretRef:
+        name: aws-ares-creds
+        namespace: external-secrets
+        key: access-key
+      secretAccessKeySecretRef:
+        name: aws-ares-creds
+        namespace: external-secrets
+        key: secret-access-key
+      sessionTokenSecretRef:
+        name: aws-ares-creds
+        namespace: external-secrets
+        key: session-token

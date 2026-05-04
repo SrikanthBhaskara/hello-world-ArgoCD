@@ -390,6 +390,14 @@ These use:
 ECRAuthorizationToken
 ```
 
+For the GCP VM test cluster, the ECR generators explicitly use:
+
+```text
+external-secrets/aws-ares-creds
+```
+
+This is required because the GCP VM cluster does not have AWS IRSA or an AWS node role. Without explicit credentials, the ECR token generator cannot call `ecr:GetAuthorizationToken`.
+
 ESO must be allowed to call:
 
 ```text

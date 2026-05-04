@@ -192,6 +192,19 @@ kubectl create secret generic aws-ares-creds `
 
 Do not commit real AWS keys to Git.
 
+The ECR token generator manifests reference this same Secret:
+
+```text
+external-secrets/aws-ares-creds
+```
+
+This lets ESO generate:
+
+```text
+argocd/bitdefender-ecr-helm-repo
+mars/ecr-regcred
+```
+
 If temporary session credentials are used, include the session token:
 
 ```powershell
