@@ -30,8 +30,8 @@ spec:
           enabled: true
           secretStoreName: aws-ares
           secretStoreKind: ClusterSecretStore
-          keystoreSecretKey: dev/scanners/bitdefender/keystore.pass
-          licenceSerialSecretKey: dev/scanners/bitdefender/licence.key.2026
+          keystoreSecretKey: stage/scanners/bitdefender/keystore.pass
+          licenceSerialSecretKey: stage/scanners/bitdefender/licence.key.2026
           licenceSerialSecretProperty: ""
         resources:
           requests:
