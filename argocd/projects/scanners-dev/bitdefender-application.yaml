@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: 776389595347.dkr.ecr.us-west-2.amazonaws.com
     chart: sib/helmcharts/ares/bitdefender-scanner
-    targetRevision: 0.1.2
+    targetRevision: 0.1.4
     helm:
       releaseName: bitdefender-scanner-dev
       valuesObject:
@@ -31,10 +31,8 @@ spec:
           secretStoreName: aws-ares
           secretStoreKind: ClusterSecretStore
           keystoreSecretKey: dev/scanners/bitdefender/keystore.pass
-          productIdSecretKey: dev/scanners/bitdefender/bitdefender.product.id
-          awsCredentialsSecretKey: dev/scanners/bitdefender/aws-credentials
-          awsCredentialsAccessKeyProperty: accessKeyId
-          awsCredentialsSecretKeyProperty: secretAccessKey
+          licenceSerialSecretKey: dev/scanners/bitdefender/licence.key.2026
+          licenceSerialSecretProperty: ""
         resources:
           requests:
             cpu: 500m
