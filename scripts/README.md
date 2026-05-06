@@ -38,4 +38,11 @@ argocd
 mars
 ```
 
-Finally it forces refresh of the ECR, scanner, bd-updater, Avira, and scanning-service ExternalSecrets when they exist.
+It also recreates the two local-VM-compatible `bd-updater` runtime secrets in `mars`:
+
+```text
+secret-bd-updater-aws-access-key-id
+secret-bd-updater-aws-secret-access-key
+```
+
+Finally it forces refresh of the ECR, scanner, Avira, and scanning-service ExternalSecrets when they exist.

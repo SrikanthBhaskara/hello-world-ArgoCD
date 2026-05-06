@@ -58,6 +58,18 @@ upsert_aws_creds_secret() {
     --dry-run=client -o yaml | k apply -f -
 }
 
+upsert_bd_updater_runtime_secrets() {
+  k create namespace mars --dry-run=client -o yaml | k apply -f -
+  k create secret generic secret-bd-updater-aws-access-key-id \
+    -n mars \
+    --from-literal=password="$AWS_ACCESS_KEY_ID" \
+    --dry-run=client -o yaml | k apply -f -
+  k create secret generic secret-bd-updater-aws-secret-access-key \
+    -n mars \
+    --from-literal=password="$AWS_SECRET_ACCESS_KEY" \
+    --dry-run=client -o yaml | k apply -f -
+}
+
 annotate_if_present() {
   local namespace="$1"
   local name="$2"
@@ -91,11 +103,15 @@ for namespace in external-secrets argocd mars; do
   upsert_aws_creds_secret "$namespace"
 done
 
+log "Updating bd-updater runtime AWS credential secrets"
+upsert_bd_updater_runtime_secrets
+
 log "Forcing ExternalSecret refresh where resources already exist"
 annotate_if_present argocd bitdefender-ecr-helm-repo
 annotate_if_present mars ecr-regcred
 annotate_if_present mars bitdefender-secrets
-annotate_if_present mars bd-updater-secrets
+annotate_if_present mars bd-updater-aws-access-key-id
+annotate_if_present mars bd-updater-aws-secret-access-key
 annotate_if_present mars avira-secrets
 annotate_if_present mars scanning-service-secrets
 
