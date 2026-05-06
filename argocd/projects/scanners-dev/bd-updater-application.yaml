@@ -1,0 +1,69 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: bd-updater-dev
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "5"
+spec:
+  project: default
+  source:
+    repoURL: 776389595347.dkr.ecr.us-west-2.amazonaws.com
+    chart: sib/helmcharts/ares/bd-updater
+    targetRevision: 0.1.0
+    helm:
+      releaseName: bd-updater-dev
+      valuesObject:
+        namespace: mars
+        fullnameOverride: bd-updater
+        image:
+          repository: 776389595347.dkr.ecr.us-west-2.amazonaws.com/ares/bd-updater
+          tag: latest
+          pullPolicy: Always
+        imagePullSecrets:
+          - name: ecr-regcred
+        replicas: 1
+        service:
+          type: ClusterIP
+          port: 8080
+          targetPort: 8080
+        config:
+          runEnv: gcp-scanner-test
+          env: gcp-scanner-test
+          environment: gcp-scanner-test
+          quadraDatacenter: gcp-scanner-test
+          awsRegion: us-west-2
+          awsEndpointUrl: ""
+        externalSecrets:
+          enabled: true
+          secretStoreName: aws-ares
+          secretStoreKind: ClusterSecretStore
+          awsCredentialsSecretKey: stage/scanners/bd-updater/aws-credentials
+          awsCredentialsAccessKeyProperty: accessKeyId
+          awsCredentialsSecretKeyProperty: secretAccessKey
+        certManager:
+          enabled: false
+        resources:
+          requests:
+            cpu: 500m
+            memory: 4Gi
+          limits:
+            cpu: "1"
+            memory: 8Gi
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: mars
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - ServerSideApply=true
+    retry:
+      limit: 3
+      backoff:
+        duration: 10s
+        factor: 2
+        maxDuration: 3m
+
