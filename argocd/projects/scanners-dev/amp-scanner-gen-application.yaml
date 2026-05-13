@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: 776389595347.dkr.ecr.us-west-2.amazonaws.com
     chart: sib/helmcharts/ares/amp-scanner-gen
-    targetRevision: 0.1.0
+    targetRevision: 0.1.1
     helm:
       releaseName: amp-scanner-gen-dev
       valuesObject:
@@ -40,6 +40,10 @@ spec:
           datadogApiProperty: metrics.datadog.apikey
           keystorePasswordKey: stage/scanners/amp-scanner/keystore.pass
           keystorePasswordProperty: server.ssl.key-store-password
+          ampkitActivationCodeKey: stage/scanners/amp-scanner/ampkit.activation.code
+          ampkitActivationCodeProperty: client.ampkit.activationCode
+          ampkitCarrierIdKey: stage/scanners/amp-scanner/ampkit.carrier.id
+          ampkitCarrierIdProperty: client.ampkit.carrierId
         resources:
           requests:
             cpu: 500m
