@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: 776389595347.dkr.ecr.us-west-2.amazonaws.com
     chart: sib/helmcharts/ares/amp-scanner-gen
-    targetRevision: 0.1.1
+    targetRevision: 0.1.2
     helm:
       releaseName: amp-scanner-gen-dev
       valuesObject:
@@ -52,6 +52,9 @@ spec:
           limits:
             cpu: "2"
             memory: 4Gi
+        emptyDirs:
+          ampLog: 100Mi
+          ampCerts: 10Mi
   destination:
     server: https://kubernetes.default.svc
     namespace: mars
