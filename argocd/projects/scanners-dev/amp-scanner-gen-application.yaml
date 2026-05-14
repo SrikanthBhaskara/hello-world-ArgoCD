@@ -55,10 +55,6 @@ spec:
         emptyDirs:
           ampLog: 100Mi
           ampCerts: 10Mi
-        probes:
-          startup:
-            initialDelaySeconds: 30
-            failureThreshold: 120
   destination:
     server: https://kubernetes.default.svc
     namespace: mars
