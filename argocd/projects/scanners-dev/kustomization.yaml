@@ -10,3 +10,4 @@ resources:
   - amp-scanner-gen-application.yaml
   - bd-updater-application.yaml
   - bitdefender-application.yaml
+  - threatgrid-services-application.yaml
