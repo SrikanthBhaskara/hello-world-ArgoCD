@@ -1,0 +1,90 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: bitdefender-monitor-dev
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "15"
+spec:
+  project: default
+  source:
+    repoURL: 776389595347.dkr.ecr.us-west-2.amazonaws.com
+    chart: sib/helmcharts/ares/bitdefender-monitor
+    targetRevision: 0.1.0
+    helm:
+      releaseName: bitdefender-monitor-dev
+      valuesObject:
+        namespace: mars
+        fullnameOverride: bitdefender-monitor
+        replicas: 1
+        image:
+          repository: 776389595347.dkr.ecr.us-west-2.amazonaws.com/ares/bitdefender-monitor
+          tag: local-vm-setup-gcp-monitor
+          pullPolicy: IfNotPresent
+        imagePullSecrets:
+          - name: ecr-regcred
+        serviceAccountName: bitdefender-monitor
+        service:
+          enabled: true
+          type: ClusterIP
+          metricsPort: 9092
+        config:
+          awsRegion: us-west-2
+          awsEndpointUrl: ""
+          awsStsRegionalEndpoints: regional
+        env:
+          PLATFORM: avalon
+          NEBULA: "false"
+          BACKEND_POOLS: bitdefender
+          BACKEND_FQDNS: bitdefender.mars.svc.cluster.local
+          BACKEND_UPDATER_POOLS: bd-updater
+          BACKEND_UPDATER_FQDNS: bd-updater.mars.svc.cluster.local
+          METRICS_ENABLED: "true"
+          SCANNER: bd
+          SERVICE: bitdefender
+          SERVICE_NAMESPACE: mars
+          PROJECT: avalon.local
+          AVAILABILITY_FREQUENCY: "1"
+          HEALTH_PATH: /v2/status
+          HEALTH_PORT: "8443"
+          QUADRA_DATACENTER: gcp-monitor-test
+          MONITOR_METRICS_ENABLED: dc,quadra project,service,vedc,applicationname,ciscomailalias,resourceowner,environment,env
+          RESOURCE_OWNER: Umbrella_ARES
+          APPLICATION_NAME: Bitdefender Monitor
+          CISCO_MAIL_ALIAS: umbrella-ares@cisco.com
+          ENV: gcp-monitor-test
+          ENVIRONMENT: nonprod
+          HTTP2_ENABLED: "false"
+          METRICS_PROVIDER: PROMETHEUS
+          PRODUCTION_MONITOR_TEST_TAG: "@PRODUCTION_MONITOR"
+        externalSecrets:
+          enabled: true
+          refreshInterval: 1h
+          secretStoreName: aws-ares
+          secretStoreKind: ClusterSecretStore
+          datadogApiKeySecretKey: stage/scanners/bitdefender-monitor/datadog-api-key
+          datadogApiKeySecretProperty: metrics.datadog.apikey
+        resources:
+          requests:
+            cpu: 500m
+            memory: 4Gi
+            ephemeral-storage: 203Mi
+          limits:
+            cpu: "1"
+            memory: 8Gi
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: mars
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - ServerSideApply=true
+    retry:
+      limit: 3
+      backoff:
+        duration: 10s
+        factor: 2
+        maxDuration: 3m
