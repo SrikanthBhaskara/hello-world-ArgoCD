@@ -62,8 +62,8 @@ spec:
           refreshInterval: 1h
           secretStoreName: aws-ares
           secretStoreKind: ClusterSecretStore
-          datadogApiKeySecretKey: stage/scanners/bitdefender-monitor/datadog-api-key
-          datadogApiKeySecretProperty: metrics.datadog.apikey
+          datadogApiKeySecretKey: dev/scanner/bitdefender/datadog/api_key
+          datadogApiKeySecretProperty: ""
         resources:
           requests:
             cpu: 500m
