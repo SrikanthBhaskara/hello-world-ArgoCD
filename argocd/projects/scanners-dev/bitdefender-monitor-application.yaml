@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: 776389595347.dkr.ecr.us-west-2.amazonaws.com
     chart: sib/helmcharts/ares/bitdefender-monitor
-    targetRevision: 0.1.0
+    targetRevision: 0.1.1
     helm:
       releaseName: bitdefender-monitor-dev
       valuesObject:
