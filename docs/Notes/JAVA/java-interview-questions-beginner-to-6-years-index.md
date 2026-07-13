@@ -19,8 +19,22 @@ These files do not replace the main learning notes. They are interview-focused c
 
 - [Complete Java interview guide](./interview-guides/java-complete-interview-guide.md)
 - [Deep interview guides index](./interview-guides/README.md)
+- [Java data structures interview guide](./interview-guides/java-data-structures-interview-guide.md)
+- [Java algorithms and interview patterns guide](./interview-guides/java-algorithms-and-patterns-interview-guide.md)
+- [Java DSA Blind 75 / Top 100 roadmap](./interview-guides/java-dsa-blind-75-top-100-roadmap.md)
+- [Company-wise Java DSA prep index](./interview-guides/java-company-wise-dsa-prep.md)
+- [Amazon-style Java DSA prep](./interview-guides/java-dsa-amazon-style-prep.md)
+- [Cisco-style Java DSA prep](./interview-guides/java-dsa-cisco-style-prep.md)
+- [Service-based company Java DSA prep](./interview-guides/java-dsa-service-based-prep.md)
+- [Product-based company Java DSA prep](./interview-guides/java-dsa-product-based-prep.md)
 - [Java coding banks](./coding/README.md)
 - [Senior Java backend roadmap: 5 to 7 years](./interview-guides/java-senior-backend-5-to-7-years-roadmap.md)
+- [Senior architecture and tradeoffs guide](./interview-guides/java-senior-architecture-and-tradeoffs-guide.md)
+- [Senior production ownership and incident guide](./interview-guides/java-senior-production-ownership-and-incident-guide.md)
+- [Senior engineering leadership and ownership guide](./interview-guides/java-senior-engineering-leadership-and-ownership-guide.md)
+- [Java low-level design interview guide](./interview-guides/java-low-level-design-interview-guide.md)
+- [Java concurrency coding interview patterns](./interview-guides/java-concurrency-coding-interview-patterns.md)
+- [Java 5 to 7 years complete revision pack](./interview-guides/java-5-to-7-years-complete-revision-pack.md)
 
 ## Recommended Study Order
 
@@ -40,4 +54,10 @@ These files do not replace the main learning notes. They are interview-focused c
 - Use [Java coding questions with solutions](./interview-prep/java-coding-questions-with-solutions.md) for core hands-on problem-solving.
 - Use [Java coding questions: advanced patterns with solutions](./interview-prep/java-coding-questions-advanced-patterns-with-solutions.md) for structured algorithms practice.
 - Use [Java coding banks](./coding/README.md) for raw practice without immediate answers.
+
+
+
+
+
+
 

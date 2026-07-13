@@ -20,8 +20,18 @@ This is the combined entry point for all interview preparation notes under `docs
 - [Java experienced: 4 to 6 years](./JAVA/interview-prep/java-interview-questions-experienced-4-to-6-years.md)
 - [Java coding questions with solutions](./JAVA/interview-prep/java-coding-questions-with-solutions.md)
 - [Java coding questions: advanced patterns with solutions](./JAVA/interview-prep/java-coding-questions-advanced-patterns-with-solutions.md)
+- [Java data structures interview guide](./JAVA/interview-guides/java-data-structures-interview-guide.md)
+- [Java algorithms and interview patterns guide](./JAVA/interview-guides/java-algorithms-and-patterns-interview-guide.md)
+- [Java DSA Blind 75 / Top 100 roadmap](./JAVA/interview-guides/java-dsa-blind-75-top-100-roadmap.md)
+- [Company-wise Java DSA prep index](./JAVA/interview-guides/java-company-wise-dsa-prep.md)
+- [Amazon-style Java DSA prep](./JAVA/interview-guides/java-dsa-amazon-style-prep.md)
+- [Cisco-style Java DSA prep](./JAVA/interview-guides/java-dsa-cisco-style-prep.md)
+- [Service-based company Java DSA prep](./JAVA/interview-guides/java-dsa-service-based-prep.md)
+- [Product-based company Java DSA prep](./JAVA/interview-guides/java-dsa-product-based-prep.md)
 - [Java core internals and runtime deep notes](./JAVA/runtime-internals/java-core-internals-and-runtime-deep-notes.md)
 - [Java core internals interview questions](./JAVA/runtime-internals/java-core-internals-interview-questions.md)
+- [Java low-level design interview guide](./JAVA/interview-guides/java-low-level-design-interview-guide.md)
+- [Java concurrency coding interview patterns](./JAVA/interview-guides/java-concurrency-coding-interview-patterns.md)
 
 ### REST API
 - [REST API deep notes](<./REST-API Notes/rest-api-deep-notes.md>)
@@ -53,6 +63,10 @@ This is the combined entry point for all interview preparation notes under `docs
 ## Interview Support Files
 
 - [Senior Java backend interview roadmap: 5 to 7 years](./JAVA/interview-guides/java-senior-backend-5-to-7-years-roadmap.md)
+- [Senior architecture and tradeoffs guide](./JAVA/interview-guides/java-senior-architecture-and-tradeoffs-guide.md)
+- [Senior production ownership and incident guide](./JAVA/interview-guides/java-senior-production-ownership-and-incident-guide.md)
+- [Senior engineering leadership and ownership guide](./JAVA/interview-guides/java-senior-engineering-leadership-and-ownership-guide.md)
+- [Java 5 to 7 years complete revision pack](./JAVA/interview-guides/java-5-to-7-years-complete-revision-pack.md)
 - [5 to 7 years mock interview rounds with ideal answers](./5-to-7-years-mock-interview-rounds-with-ideal-answers.md)
 - [HR interview questions and answers](./hr-interview-questions-and-answers.md)
 - [Project explanation answers for interviews](./project-explanation-answers-for-interviews.md)
@@ -66,5 +80,11 @@ This is the combined entry point for all interview preparation notes under `docs
 - Practice the project explanation file until you can explain your work naturally.
 - Use the mock rounds for spoken practice, not just reading.
 - For 5 to 7 year roles, practice answering with tradeoffs, ownership, and incident thinking.
+
+
+
+
+
+
 
 

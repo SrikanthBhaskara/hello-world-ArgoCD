@@ -572,3 +572,10 @@ At the end of this roadmap, you should be able to:
 - speak confidently about production incidents
 - show ownership and mentoring maturity
 - sound like a strong 5-year engineer or an emerging 7-year senior candidate, depending on the role target
+
+## Additional Senior-Focused Guides
+
+- [Senior architecture and tradeoffs guide](./java-senior-architecture-and-tradeoffs-guide.md)
+- [Senior production ownership and incident guide](./java-senior-production-ownership-and-incident-guide.md)
+- [Senior engineering leadership and ownership guide](./java-senior-engineering-leadership-and-ownership-guide.md)
+

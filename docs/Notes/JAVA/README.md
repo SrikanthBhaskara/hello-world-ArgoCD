@@ -18,6 +18,7 @@ This directory is organized to separate core learning, version-by-version Java u
 ### Interview Preparation
 - [Structured interview prep](./interview-prep/)
 - [Deep interview guides](./interview-guides/README.md)
+- [DSA Blind 75 / Top 100 roadmap](./interview-guides/java-dsa-blind-75-top-100-roadmap.md)
 - [Coding banks](./coding/README.md)
 
 ## Recommended Learning Order
@@ -45,3 +46,4 @@ This directory is organized to separate core learning, version-by-version Java u
 - Use `version-notes` and `learning-guides` when preparing for migration or modernization discussions.
 - Use `runtime-internals` and `interview-guides` when preparing for 4 to 7 year Java backend rounds.
 - Use `interview-prep` when you want polished, interviewer-friendly answer formats.
+
