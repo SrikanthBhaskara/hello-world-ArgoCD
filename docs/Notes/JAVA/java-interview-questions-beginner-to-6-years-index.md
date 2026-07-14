@@ -13,6 +13,7 @@ These files do not replace the main learning notes. They are interview-focused c
 - [Java experienced: 4 to 6 years](./interview-prep/java-interview-questions-experienced-4-to-6-years.md)
 - [Java core internals interview questions](./runtime-internals/java-core-internals-interview-questions.md)
 - [Java coding questions with solutions](./interview-prep/java-coding-questions-with-solutions.md)
+- [Most repeated coding questions with solutions](./interview-prep/java-most-repeated-coding-questions-with-solutions.md)
 - [Java coding questions: advanced patterns with solutions](./interview-prep/java-coding-questions-advanced-patterns-with-solutions.md)
 
 ## Deep Revision Files
@@ -28,6 +29,7 @@ These files do not replace the main learning notes. They are interview-focused c
 - [Service-based company Java DSA prep](./interview-guides/java-dsa-service-based-prep.md)
 - [Product-based company Java DSA prep](./interview-guides/java-dsa-product-based-prep.md)
 - [Java coding banks](./coding/README.md)
+- [Java 200+ repeated coding interview questions bank](./coding/java-200-plus-repeated-coding-interview-questions.md)
 - [Senior Java backend roadmap: 5 to 7 years](./interview-guides/java-senior-backend-5-to-7-years-roadmap.md)
 - [Senior architecture and tradeoffs guide](./interview-guides/java-senior-architecture-and-tradeoffs-guide.md)
 - [Senior production ownership and incident guide](./interview-guides/java-senior-production-ownership-and-incident-guide.md)
@@ -54,6 +56,8 @@ These files do not replace the main learning notes. They are interview-focused c
 - Use [Java coding questions with solutions](./interview-prep/java-coding-questions-with-solutions.md) for core hands-on problem-solving.
 - Use [Java coding questions: advanced patterns with solutions](./interview-prep/java-coding-questions-advanced-patterns-with-solutions.md) for structured algorithms practice.
 - Use [Java coding banks](./coding/README.md) for raw practice without immediate answers.
+
+
 
 
 

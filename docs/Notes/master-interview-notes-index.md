@@ -19,7 +19,9 @@ This is the combined entry point for all interview preparation notes under `docs
 - [Java intermediate: 2 to 4 years](./JAVA/interview-prep/java-interview-questions-intermediate-2-to-4-years.md)
 - [Java experienced: 4 to 6 years](./JAVA/interview-prep/java-interview-questions-experienced-4-to-6-years.md)
 - [Java coding questions with solutions](./JAVA/interview-prep/java-coding-questions-with-solutions.md)
+- [Most repeated coding questions with solutions](./JAVA/interview-prep/java-most-repeated-coding-questions-with-solutions.md)
 - [Java coding questions: advanced patterns with solutions](./JAVA/interview-prep/java-coding-questions-advanced-patterns-with-solutions.md)
+- [Java 200+ repeated coding interview questions bank](./JAVA/coding/java-200-plus-repeated-coding-interview-questions.md)
 - [Java data structures interview guide](./JAVA/interview-guides/java-data-structures-interview-guide.md)
 - [Java algorithms and interview patterns guide](./JAVA/interview-guides/java-algorithms-and-patterns-interview-guide.md)
 - [Java DSA Blind 75 / Top 100 roadmap](./JAVA/interview-guides/java-dsa-blind-75-top-100-roadmap.md)
@@ -33,6 +35,16 @@ This is the combined entry point for all interview preparation notes under `docs
 - [Java low-level design interview guide](./JAVA/interview-guides/java-low-level-design-interview-guide.md)
 - [Java concurrency coding interview patterns](./JAVA/interview-guides/java-concurrency-coding-interview-patterns.md)
 
+
+### Python
+- [Python notes home](./PYTHON/README.md)
+- [Python interview index](./PYTHON/interview-prep/python-interview-questions-beginner-to-6-years-index.md)
+- [Python deep notes](./PYTHON/interview-guides/python-deep-notes.md)
+- [Python beginner: 0 to 2 years](./PYTHON/interview-prep/python-interview-questions-beginner-0-to-2-years.md)
+- [Python intermediate: 2 to 4 years](./PYTHON/interview-prep/python-interview-questions-intermediate-2-to-4-years.md)
+- [Python experienced: 4 to 6 years](./PYTHON/interview-prep/python-interview-questions-experienced-4-to-6-years.md)
+- [Python coding questions with solutions](./PYTHON/interview-prep/python-coding-questions-with-solutions.md)
+- [Python coding bank](./PYTHON/coding/python-repeated-coding-interview-questions.md)
 ### REST API
 - [REST API deep notes](<./REST-API Notes/rest-api-deep-notes.md>)
 - [REST API interview questions](<./REST-API Notes/rest-api-interview-questions-beginner-to-6-years.md>)
@@ -80,6 +92,9 @@ This is the combined entry point for all interview preparation notes under `docs
 - Practice the project explanation file until you can explain your work naturally.
 - Use the mock rounds for spoken practice, not just reading.
 - For 5 to 7 year roles, practice answering with tradeoffs, ownership, and incident thinking.
+
+
+
 
 
 
