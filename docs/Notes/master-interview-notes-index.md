@@ -4,11 +4,11 @@ This is the combined entry point for all interview preparation notes under `docs
 
 ## Recommended Study Order
 
-1. Start with Java, Linux, Maven, testing, Spring Boot, and REST API basics.
+1. Start with Java, Linux, Maven, testing, Spring Boot, REST API, and database basics.
 2. Move to Docker, Kubernetes, ArgoCD, Helm, and GitOps.
 3. Revise AWS, Jenkins, Terraform, and Terragrunt.
 4. Practice project explanation, HR answers, mock rounds, and senior-level answer style.
-5. Finish with deep Kubernetes and system design topics.
+5. Finish with deep Kubernetes, databases, and system design topics.
 
 ## Core Interview Categories
 
@@ -45,6 +45,17 @@ This is the combined entry point for all interview preparation notes under `docs
 - [Python coding questions with solutions](./PYTHON/interview-prep/python-coding-questions-with-solutions.md)
 - [Python coding bank](./PYTHON/coding/python-repeated-coding-interview-questions.md)
 
+### Databases
+- [Database notes home](<./DATABASES Notes/README.md>)
+- [Database interview index](<./DATABASES Notes/database-interview-index.md>)
+- [Database interview questions with short and better answers](<./DATABASES Notes/database-interview-questions-with-short-and-better-answers.md>)
+- [Database senior 5 to 7 years production interview guide](<./DATABASES Notes/database-senior-5-to-7-years-production-interview-guide.md>)
+- [SQL and RDBMS deep notes](<./DATABASES Notes/SQL/sql-rdbms-deep-notes.md>)
+- [PostgreSQL deep notes](<./DATABASES Notes/SQL/postgresql-deep-notes.md>)
+- [MongoDB deep notes](<./DATABASES Notes/NOSQL/mongodb-deep-notes.md>)
+- [Cassandra deep notes](<./DATABASES Notes/NOSQL/cassandra-deep-notes.md>)
+- [Solr deep notes](<./DATABASES Notes/SEARCH/solr-deep-notes.md>)
+
 ### REST API
 - [REST API deep notes](<./REST-API Notes/rest-api-deep-notes.md>)
 - [REST API interview questions](<./REST-API Notes/rest-api-interview-questions-beginner-to-6-years.md>)
@@ -61,6 +72,7 @@ This is the combined entry point for all interview preparation notes under `docs
 - [Linux file permissions deep scenarios](<./Linux Notes/linux-file-permissions-deep-scenarios.md>)
 - [Linux networking interview deep questions](<./Linux Notes/linux-networking-interview-deep-questions.md>)
 - [Advanced bash scripting deep notes and interview problems with solutions](<./Linux Notes/advanced-bash-scripting-deep-notes-and-interview-problems-with-solutions.md>)
+- [Linux senior 5 to 7 years production interview guide](<./Linux Notes/linux-senior-5-to-7-years-production-interview-guide.md>)
 
 ### ArgoCD and Kubernetes
 - [ArgoCD and Kubernetes index](<./ARGOCD-KUBERNETES Notes/argocd-kubernetes-interview-questions-beginner-to-6-years-index.md>)
@@ -71,6 +83,7 @@ This is the combined entry point for all interview preparation notes under `docs
 - [ArgoCD interview questions with short and better answers](<./ARGOCD-KUBERNETES Notes/argocd-interview-questions-with-short-and-better-answers.md>)
 - [ArgoCD troubleshooting scenarios with ideal answers](<./ARGOCD-KUBERNETES Notes/argocd-troubleshooting-scenarios-with-ideal-answers.md>)
 - [ArgoCD ApplicationSet, Helm, and sync-hooks examples](<./ARGOCD-KUBERNETES Notes/argocd-applicationset-helm-sync-hooks-examples.md>)
+- [ArgoCD senior 5 to 7 years production interview guide](<./ARGOCD-KUBERNETES Notes/argocd-senior-5-to-7-years-production-interview-guide.md>)
 
 ### Platform and Cloud
 - [Docker interview notes](<./DOCKER Notes/docker-interview-questions-beginner-to-6-years.md>)
@@ -79,11 +92,13 @@ This is the combined entry point for all interview preparation notes under `docs
 - [Docker interview questions with short and better answers](<./DOCKER Notes/docker-interview-questions-with-short-and-better-answers.md>)
 - [Docker troubleshooting scenarios with ideal answers](<./DOCKER Notes/docker-troubleshooting-scenarios-with-ideal-answers.md>)
 - [Docker Compose, registry, and Kubernetes deployment examples](<./DOCKER Notes/docker-compose-registry-kubernetes-deployment-examples.md>)
+- [Docker senior 5 to 7 years production interview guide](<./DOCKER Notes/docker-senior-5-to-7-years-production-interview-guide.md>)
 - [DevOps interview notes](<./DEVOPS Notes/devops-interview-questions-beginner-to-6-years.md>)
 - [DevOps deep notes](<./DEVOPS Notes/devops-deep-notes.md>)
 - [DevOps interview questions with short and better answers](<./DEVOPS Notes/devops-interview-questions-with-short-and-better-answers.md>)
 - [DevOps troubleshooting scenarios with ideal answers](<./DEVOPS Notes/devops-troubleshooting-scenarios-with-ideal-answers.md>)
 - [CI/CD, GitOps, rollback, and observability architecture examples](<./DEVOPS Notes/cicd-gitops-rollback-observability-architecture-examples.md>)
+- [DevOps senior 5 to 7 years production interview guide](<./DEVOPS Notes/devops-senior-5-to-7-years-production-interview-guide.md>)
 - [Jenkins, Terraform, Terragrunt interview notes](<./JENKINS-TERRAFORM-TERRAGRUNT Notes/jenkins-terraform-terragrunt-interview-questions-beginner-to-6-years.md>)
 - [AWS interview notes](<./AWS Notes/aws-interview-questions-beginner-to-6-years.md>)
 - [AWS and EKS deep notes](<./AWS Notes/aws-eks-deep-notes.md>)
@@ -91,18 +106,25 @@ This is the combined entry point for all interview preparation notes under `docs
 - [AWS EKS interview questions with short and better answers](<./AWS Notes/aws-eks-interview-questions-with-short-and-better-answers.md>)
 - [AWS troubleshooting scenarios with ideal answers](<./AWS Notes/aws-troubleshooting-scenarios-with-ideal-answers.md>)
 - [EKS IAM, Ingress, External Secrets, and ECR sample YAML and architecture notes](<./AWS Notes/eks-iam-ingress-external-secrets-ecr-sample-yaml-and-architecture-notes.md>)
+- [AWS / EKS senior 5 to 7 years production interview guide](<./AWS Notes/aws-eks-senior-5-to-7-years-production-interview-guide.md>)
 - [Spring Boot and Java backend interview notes](<./SPRINGBOOT-JAVA-BACKEND Notes/springboot-java-backend-interview-questions-beginner-to-6-years.md>)
+- [Spring Boot and Java backend deep notes](<./SPRINGBOOT-JAVA-BACKEND Notes/springboot-java-backend-deep-notes.md>)
+- [Spring Boot and Java backend interview questions with short and better answers](<./SPRINGBOOT-JAVA-BACKEND Notes/springboot-java-backend-interview-questions-with-short-and-better-answers.md>)
+- [Spring Boot and Java backend coding questions with solutions](<./SPRINGBOOT-JAVA-BACKEND Notes/springboot-java-backend-coding-questions-with-solutions.md>)
+- [Spring Boot and Java backend senior 5 to 7 years production interview guide](<./SPRINGBOOT-JAVA-BACKEND Notes/springboot-java-backend-senior-5-to-7-years-production-interview-guide.md>)
 - [GitOps, Helm, External Secrets interview notes](<./GITOPS-HELM-EXTERNALSECRETS Notes/gitops-helm-externalsecrets-interview-questions-beginner-to-6-years.md>)
 - [Kubernetes deep interview notes](<./KUBERNETES-DEEP Notes/kubernetes-deep-interview-questions-beginner-to-6-years.md>)
 - [Kubernetes interview questions with short and better answers](<./KUBERNETES-DEEP Notes/kubernetes-interview-questions-with-short-and-better-answers.md>)
 - [Kubernetes troubleshooting scenarios with ideal answers](<./KUBERNETES-DEEP Notes/kubernetes-troubleshooting-scenarios-with-ideal-answers.md>)
 - [Kubernetes YAML examples for Deployment, Service, Ingress, ConfigMap, Secret, probes, and RBAC](<./KUBERNETES-DEEP Notes/kubernetes-yaml-examples-for-deployment-service-ingress-configmap-secret-probes-rbac.md>)
 - [Helm interview questions with short and better answers](<./KUBERNETES-DEEP Notes/helm-interview-questions-with-short-and-better-answers.md>)
+- [Kubernetes senior 5 to 7 years production interview guide](<./KUBERNETES-DEEP Notes/kubernetes-senior-5-to-7-years-production-interview-guide.md>)
 - [Microservices and system design interview notes](<./MICROSERVICES-SYSTEM-DESIGN Notes/microservices-system-design-interview-notes-beginner-to-6-years.md>)
 - [Maven, SonarQube, testing interview notes](<./MAVEN-SONARQUBE-TESTING Notes/maven-sonarqube-testing-interview-notes-beginner-to-6-years.md>)
 
 ## Interview Support Files
 
+- [5 to 7 years senior interview answer framework](./5-to-7-years-senior-interview-answer-framework.md)
 - [Senior Java backend interview roadmap: 5 to 7 years](./JAVA/interview-guides/java-senior-backend-5-to-7-years-roadmap.md)
 - [Senior architecture and tradeoffs guide](./JAVA/interview-guides/java-senior-architecture-and-tradeoffs-guide.md)
 - [Senior production ownership and incident guide](./JAVA/interview-guides/java-senior-production-ownership-and-incident-guide.md)
@@ -118,6 +140,7 @@ This is the combined entry point for all interview preparation notes under `docs
 
 - Learn the `Short answer` first.
 - Upgrade it into the `Better answer` version for real interviews.
+- Use the senior guides to add real-system usage, debugging, tradeoffs, and safe change thinking.
 - Practice the project explanation file until you can explain your work naturally.
 - Use the mock rounds for spoken practice, not just reading.
 - For 5 to 7 year roles, practice answering with tradeoffs, ownership, and incident thinking.

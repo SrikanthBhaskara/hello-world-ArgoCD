@@ -8,10 +8,9 @@
 - [Kubernetes deep interview notes](./kubernetes-deep-interview-questions-beginner-to-6-years.md)
 - [Kubernetes structured learning path](./Kubernetes/README.md)
 - [Kubernetes topic index](./Kubernetes/k8s-index.md)
+- [Kubernetes senior 5 to 7 years production interview guide](./kubernetes-senior-5-to-7-years-production-interview-guide.md)
 
 ## Best Use
 - Use the interview notes for spoken interview preparation.
-- Use the structured learning path when you want topic-by-topic cluster fundamentals and deeper platform understanding.
-- Use the topic index as a quick jump page into specific Kubernetes areas like workloads, networking, storage, RBAC, Helm, and monitoring.
-
-
+- Use the structured learning path for deeper topic-by-topic learning.
+- Use the senior guide for probes, rollouts, scheduling, RBAC, debugging, and production tradeoff answers.

@@ -13,6 +13,7 @@ This note set organizes Linux interview preparation by experience level using th
 - [Linux file permissions deep scenarios](./linux-file-permissions-deep-scenarios.md)
 - [Linux networking interview deep questions](./linux-networking-interview-deep-questions.md)
 - [Advanced bash scripting deep notes and interview problems with solutions](./advanced-bash-scripting-deep-notes-and-interview-problems-with-solutions.md)
+- [Linux senior 5 to 7 years production interview guide](./linux-senior-5-to-7-years-production-interview-guide.md)
 
 - `linux-interview-questions-beginner-0-to-2-years.md`
 - `linux-interview-questions-intermediate-2-to-4-years.md`
@@ -26,9 +27,11 @@ This note set organizes Linux interview preparation by experience level using th
 4. Expert depth: SELinux, advanced networking, troubleshooting, performance, real-world scenarios
 5. Deep revision: [Linux deep notes](./linux-deep-notes.md)
 6. Practice deep-dive topics: permissions scenarios, networking interview questions, and advanced Bash problems
+7. Upgrade to senior answers: [Linux senior 5 to 7 years production interview guide](./linux-senior-5-to-7-years-production-interview-guide.md)
 
 ## Interview Strategy
 
 - Beginner interviews focus on commands, navigation, permissions, processes, and SSH.
 - Intermediate interviews focus on troubleshooting, package management, systemd, storage, scripting, and networking.
 - 4 to 6 year interviews focus on architecture, production incidents, performance, security, automation, and platform design.
+- 5 to 7 year interviews expect safer change thinking, sharper debugging, and clearer tradeoff explanations.

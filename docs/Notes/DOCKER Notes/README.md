@@ -7,8 +7,8 @@
 - [Docker deep notes](./docker-deep-notes.md)
 - [Docker with Kubernetes deep notes](./docker-with-kubernetes-deep-notes.md)
 - [Docker interview notes](./docker-interview-questions-beginner-to-6-years.md)
+- [Docker senior 5 to 7 years production interview guide](./docker-senior-5-to-7-years-production-interview-guide.md)
 
 ## Best Use
-- Use this file for Docker concepts, interview questions, and answer practice.
-
-
+- Use the main notes for fundamentals and interview revision.
+- Use the senior guide for production tradeoffs, debugging, image/runtime safety, and rollout thinking.
