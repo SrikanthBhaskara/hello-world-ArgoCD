@@ -10,6 +10,7 @@ This folder contains topic-by-topic deep interview material for Java backend int
 - [Collections framework interview guide](./java-collections-framework-interview-guide.md)
 - [JVM and memory management interview guide](./java-jvm-memory-management-interview-guide.md)
 - [Multithreading and concurrency interview guide](./java-multithreading-concurrency-interview-guide.md)
+- [Java backend concurrency and async processing deep notes](./java-backend-concurrency-and-async-processing-deep-notes.md)
 - [Java 8+ features interview guide](./java-8-plus-features-interview-guide.md)
 - [Spring framework interview guide](./java-spring-framework-interview-guide.md)
 - [Database, JPA, Hibernate interview guide](./java-database-jpa-hibernate-interview-guide.md)
@@ -39,10 +40,3 @@ This folder contains topic-by-topic deep interview material for Java backend int
 - Use the complete guide as the entry point.
 - Use topic guides for focused deep revision before interviews.
 - Use the interviewer guide and roadmap for 5 to 7 year preparation.
-
-
-
-
-
-
-

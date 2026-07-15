@@ -12,6 +12,7 @@
 
 - [SQL and RDBMS deep notes](./SQL/sql-rdbms-deep-notes.md)
 - [PostgreSQL deep notes](./SQL/postgresql-deep-notes.md)
+- [Database performance, scale, and reliability deep notes](./SQL/database-performance-scale-and-reliability-deep-notes.md)
 - [SQL query examples and interview problems](./SQL/sql-query-examples-and-interview-problems.md)
 
 ### NoSQL
@@ -20,6 +21,7 @@
 - [MongoDB query examples and interview problems](./NOSQL/mongodb-query-examples-and-interview-problems.md)
 - [Cassandra deep notes](./NOSQL/cassandra-deep-notes.md)
 - [Cassandra CQL query patterns and interview notes](./NOSQL/cassandra-cql-query-patterns-and-interview-notes.md)
+- [Redis deep notes](./NOSQL/redis-deep-notes.md)
 
 ### Search
 
@@ -30,8 +32,8 @@
 
 1. Start with SQL and RDBMS fundamentals.
 2. Learn PostgreSQL for relational and production-focused interview coverage.
-3. Practice SQL query problems.
-4. Use the real-time interview and scenario files for live interview preparation.
-5. Move to MongoDB and Cassandra for document and distributed NoSQL patterns.
+3. Use the database performance note for execution plans, partitioning, replication, pooling, and migration safety.
+4. Practice SQL query problems.
+5. Move to MongoDB, Cassandra, and Redis for document, distributed, and cache-heavy system patterns.
 6. Use Solr notes when search indexing and query systems are relevant.
 7. Finish with the broader interview Q&A and senior guide.

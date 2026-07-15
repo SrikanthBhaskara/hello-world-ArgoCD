@@ -9,6 +9,8 @@
 - [Spring MVC deep notes](./spring-mvc-deep-notes.md)
 - [Spring REST API design deep notes](./spring-rest-api-design-deep-notes.md)
 - [Spring Data JPA and transactions deep notes](./spring-data-jpa-transactions-deep-notes.md)
+- [Hibernate and JPA deep notes](./hibernate-jpa-deep-notes.md)
+- [Hibernate and JPA interview questions with short and better answers](./hibernate-jpa-interview-questions-with-short-and-better-answers.md)
 - [Spring Security deep notes](./spring-security-deep-notes.md)
 - [Spring Security advanced deep notes](./spring-security-advanced-deep-notes.md)
 - [Spring AOP deep notes](./spring-aop-deep-notes.md)
@@ -26,6 +28,7 @@
 - Spring MVC and request flow
 - REST API design, DTOs, validation, exception handling
 - Spring Data JPA, transactions, performance basics
+- dedicated Hibernate and JPA lifecycle, fetch, query, and performance notes
 - Spring Security basic and advanced topics
 - Spring AOP and proxy-based cross-cutting behavior
 - Spring testing strategy and test slices
@@ -39,6 +42,6 @@
 
 1. Start with the combined deep notes for overview.
 2. Use the separate deep-note files by topic when you want focused revision.
-3. Revise the interview Q&A file for spoken answers.
+3. Revise the interview Q&A files for spoken answers.
 4. Practice the coding questions file before interviews.
 5. Use the senior guide to upgrade answers for 5 to 7 years expectations.

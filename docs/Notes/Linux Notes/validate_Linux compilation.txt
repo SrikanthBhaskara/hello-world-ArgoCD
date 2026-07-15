@@ -1,0 +1,517 @@
+=============================
+SSH:
+ 
+sudo sshd -T | egrep 'ciphers|macs|kexalgo'
+Ciphers: ssh -Q cipher
+MACs: ssh -Q mac
+KexAlgorithms: ssh -Q kex
+PubkeyAcceptedKeyTypes: ssh -Q key
+----
+vi /etc/ssh/sshd_config
+sudo systemctl restart sshd.service
+sshd -T | egrep 'ciphers|macs|kexalgo'
+
+==========================================
+folders copying(-r) :
+scp -r rpm root@10.78.92.211:/root/Srikanth
+
+==================================
+cmds:
+top –i
+==================
+:%y  ---copy enter file
+
+Open the file in vi:
+vi yourfile.sh
+
+Go to line 10 by typing:
+:10
+
+To yank (copy) lines 10 to 300, type:
+:10,300y
+
+This yanks (copies) the lines into vi's clipboard. If you want to paste these lines elsewhere in the same file, navigate to the desired location and type
+p
+
+If you want to save them in a new file, after copying:Open a new file within vi:
+
+:e newfile.sh
+
+Paste the yanked content:
+p
+
+Save the file:
+:w
+
+Viewing More Lines: To view the additional lines, you can scroll down by pressing the Ctrl key and f key together (scroll forward), or Ctrl + d (half-page down). You can also navigate to specific lines or use search functions.
+Copying the Remaining Lines:
+
+If you want to copy more lines that appear beyond the initial range, you can use a similar approach to the one described earlier:
+
+:301,350y   =>Replace 301,350 with the appropriate line range based on what you need.
+
+
+Copying the Entire File: If you want to copy the entire file content, you can use:
+:%y  =>This copies the entire file's content.
+
+Saving and Working with a Subset: You might want to save a subset of the file to a new file. For instance, to save lines 10 to 300, use:
+:10,300w newfile.sh  =>This writes the lines from 10 to 300 to newfile.sh.
+
+Using vi Commands for Line Ranges: If you need to work with a specific range of lines frequently, you can set up vi commands or scripts to handle these operations automatically.
+
+----------------------------------------
+Set Spaces for Tab Indentation in shell sript:
+
+Enter the following commands:
+:set tabstop=4
+:set shiftwidth=4
+:set expandtab
+
+Explanation:
+tabstop=4: A tab character represents 4 spaces.
+shiftwidth=4: Number of spaces used for each level of indentation.
+expandtab: Converts tabs to spaces when you press Tab.
+
+----------------
+Remove Trailing Spaces:Run this command to remove trailing spaces on all lines:
+:%s/\s\+$//e
+
+Explanation:
+:%s/: Search and replace in the entire file.
+\s\+$: Match any sequence of spaces (\s) at the end of the line (\+$).
+//e: Replace with nothing (delete) and avoid errors if no spaces are found.
+--------------
+=======================
+GREP:
+--------
+grep "MIME_FLOW" test.log
+--> This command will print all lines from test.log that contain the exact keyword MIME_FLOW.
+
+grep -n "MIME_FLOW" test.log
+-->  If you want to see the line numbers along with the matching lines, use:
+
+grep -i "MIME_FLOW" test.log
+--> If you want the search to be case-insensitive, use:
+
+
+yyp ====> copy paste in LINUX
+
+bunndle has tar 
+
+tar -ztvf projects.tar.gz
+
+i want tar zip with start of interface_c* files how to todo
+
+On FreeBSD/Linux:
+
+Extract later with:
+tar -czvf interface_controllers.tar.gz interface_c*
+
+List files inside a tar.gz without extracting:
+tar -tzvf interface_controllers.tar.gz
+Short listing (filenames only):
+tar -tf interface_controllers.tar.gz
+=================
+port:
+netstat -ltnp
+
+sudo lsof -i -P -n | grep LISTEN
+sudo netstat -tulpn | grep LISTEN
+sudo ss -tulpn | grep LISTEN
+sudo lsof -i:22 ## see a specific port such as 22 ##
+sudo nmap -sTU -O IP-address-Here
+===========================
+iptables:
+
+sudo iptables -L -n
+sudo iptables -A INPUT -p tcp --dport 9089 -j ACCEPT
+sudo iptables-save > /etc/iptables/rules.v4
+sudo systemctl restart iptables
+OR
+sudo service iptables restart
+sudo iptables -L -n
+======================================
+Find the Process Using the Port::
+
+netstat -tulpen | grep 9042
+or
+sudo netstat -tulnp | grep :<PORT>
+or
+sudo lsof -i :<PORT>
+===================================
+Linux df command:
+-----------------------
+The df command stands for "disk-free," and shows available and used disk space on the Linux system.
+df -h shows disk space in human-readable format
+df -a shows the file system's complete disk usage even if the Available field is 0
+df -T shows the disk usage along with each block's filesystem type (e.g., xfs, ext2, ext3, btrfs, etc.)
+df -i shows used and free inodes
+==================
+Linux du command:
+-----------------
+du shows the disk usage of files, folders, etc. in the default kilobyte size
+du -h shows disk usage in human-readable format for all directories and subdirectories
+du -a shows disk usage for all files
+du -s provides total disk space used by a particular file or directory
+=================
+Linux ls -al command:
+---------------------
+ls -al lists the entire contents, along with their size, of a particular directory
+=====================
+Linux stat command:
+------------------
+stat <file/directory> displays the size and other stats of a file/directory or a filesystem.
+====================
+Linux fdisk -l command:
+-----------------------
+fdisk -l shows disk size along with disk partitioning information
+=====================
+tcpdump -i any port 443 -n -w 27_without_sni_36.pcap
+======================
+If you want to search and replace the pattern in the entire file, use the percentage character % as a range. This character indicates a range from the first to the last line of the file:
+cmd:
+:%s/fileValidateMalicious/hasMaliciousContent/g
+
+
+=========================
+Maven:
+12
+
+In case you can't or don't want to update Maven due to some reason but urgently need the build results there is also a way to bypass this check using the command line option:
+cmd: -Denforcer.skip=true
+====================
+SSH cmds:
+ssh -Q kex ::::: algorithms 
+sshd -T
+sshd -t
+ssh -Q cipher
+ssh -Q mac
+sshd -T | grep kex
+f the specified value begins with a ‘-’ character, then the specified methods (including
+wildcards) will be removed from the default set instead of replacing them.
+
+sshd -T | grep cipher
+
+
+ vi /etc/ssh/sshd_config
+ systemctl restart sshd
+===========================
+
+View tar zip content:
+tar -ztvf UCCX_15.0.1.9000-97_vosbuild_logs.tar.gz
+extract tar zip:
+tar -xvzf UCCX_15.0.1.9000-97_vosbuild_logs.tar.gz
+
+----------------------------------------------
+SolrcmdS:
+extract cmd: tar -xvf ciscouccx.1162.1251SU2PREUPGRADE.31.cop
+
+cop extract:
+ tar -xvzf ciscoccp.1501.PREUPGRADE-ApacheSolandraMigration.156.cop
+
+===================
+
+To print out only the default gw IP:
+----------------
+route -n | grep 'UG[ \t]' | awk '{print $2}'
+
+To print out route information on all interfaces:
+----------------------
+route -n
+or
+netstat -rn
+
+ip route show 0.0.0.0/0 dev eth0 | cut -d\  -f3
+or
+ awk '/^def/{print $3}'
+or
+route | grep default | awk '{print $2}'
+================================
+Get DNS details:
+ cat /etc/resolv.conf
+
+========================
+different user run:
+
+sudo -u mmca_user ./ccp-ds-indexer start
+
+====================
+
+Get Host name :
+
+nslookup <ip> <dns ip>
+===================
+Convert Line Endings to Unix Format:
+If your script was created on Windows, it might have carriage return characters (\r\n), which are not compatible with Unix systems. You can convert these to Unix line endings (\n) using the dos2unix command.
+ dos2unix  <mmca_switch_version.sh>
+dos2unix: converting file mmca_switch_version.sh to Unix format ...
+
+or
+
+sed -i 's/\r$//' /data/test/application.log (example)
+
+====================================
+Space usage by Directory:
+------------------------
+To check the size of a directory and its contents (including subdirectories), you can use the du (disk usage) command in Linux. Here are some common ways to do this:
+
+1. Check the size of a directory:
+------------------
+du -sh /path/to/directory
+-s: Summarizes the total size of the directory.
+-h: Displays the size in a human-readable format (KB, MB, GB).
+Example: du -sh /common/ccp/migration
+2. Check the size of each file and subdirectory:
+cmd: du -h /path/to/directory
+This will display the size of each file and subdirectory within the specified directory in a human-readable format.
+
+3. Check the size of all files and directories sorted by size:
+cmd: du -h /path/to/directory | sort -h
+This will sort the output by size, with the smallest at the top and the largest at the bottom.
+
+4. Display the size of a specific directory and its subdirectories in depth:
+cmd: du -h --max-depth=1 /path/to/directory
+--max-depth=1: Limits the command to show only the sizes of the top-level directories.
+
+=====================================
+Calculate time in shell script:
+-------------------------------------
+
+# Record the start time
+start_time=$(date +%s)
+
+# Execute the function
+my_function
+
+# Record the end time
+end_time=$(date +%s)
+
+# Calculate the difference
+execution_time=$((end_time - start_time))
+
+echo "Execution time: $execution_time seconds"
+==================================================
+find out how many files are in a directory:
+------------------------------------
+
+To find out how many files are in a directory in Linux, you can use several different commands depending on what you want to count. Here are some common methods:
+
+1. Count All Files (including hidden files):
+
+ls -1A /path/to/directory | wc -l
+ls -1A: Lists all files in the directory (one per line) excluding . and .. (current and parent directory).
+wc -l: Counts the number of lines, which corresponds to the number of files.
+2. Count Only Regular Files (excluding directories and hidden files):
+
+find /path/to/directory -type f | wc -l
+find: Searches for files.
+-type f: Filters to only count regular files.
+wc -l: Counts the number of files found.
+3. Count Files Recursively (in all subdirectories):
+
+find /path/to/directory -type f | wc -l
+This will include files in the current directory and all of its subdirectories.
+
+4. Count Files and Directories Separately:
+Files:
+
+find /path/to/directory -type f | wc -l
+Directories:
+
+find /path/to/directory -type d | wc -l
+5. Count Hidden Files:
+
+find /path/to/directory -type f -name ".*" | wc -l
+This command will count only the hidden files (those starting with .).
+
+6. Count Files of a Specific Type (e.g., .txt files):
+
+7.  find / -type d -name "swa_dlp"
+
+find /path/to/directory -type f -name "*.txt" | wc -l
+This will count only the files with a .txt extension.
+
+===============================================
+
+
+
+Linux commands show all running processes
+Apart from ps command, you can also use the following commands to display info about processes on Linux operating systems:
+
+top command : Display and update sorted information about Linux processes.
+atop command : Advanced System & Process Monitor for Linux.
+htop command : Interactive process viewer in Linux.
+pgrep command : Look up or signal processes based on name and other attributes.
+pstree command : Display a tree of processes.
+btop command : New Linux resource monitor CLI app that shows usage and stats for CPU, memory, disks, network and processes. I recommend this one along with htop these days.
+glances command : Curses-based monitoring tool that shows many things on Linux including processes.
+
+
+------
+
+How to list process with the ps command:
+Type the following ps command to display all running process:
+ps -aux | less
+
+OR 
+filter ps command outputs using the less command:
+ps aux | less
+
+Where,
+
+A : Select all processes
+u : Select all processes on a terminal, including those of other users
+x : Select processes without controlling ttys
+---------
+
+
+See every process on the Linux system
+Either pass -A or -e option to show all processes on your server/workstation powered by Linux:
+ps -A
+ps -e
+-------
+
+How do I use grep to search a file on Linux?
+Search the /etc/passswd file for a user named ‘boo’, enter:
+grep boo /etc/passwd
+
+Sample outputs:
+
+foo:x:1000:1000:boo,,,:/home/boo:/bin/ksh
+We can use fgrep/grep to find all the lines of a file that contain a particular word. For example, to list all the lines of a file named address.txt in the current directory that contain the word “California”, run:
+grep -F California address.txt
+
+Please note that the above command also returns lines where “California” is part of other words, such as “Californication” or “Californian”. Hence pass the -w option with the grep/fgrep command to get only lines where “California” is included as a whole word:
+grep -F -w California address.txt
+
+You can force grep to ignore word case i.e match boo, Boo, BOO and all other combination with the -i option. For instance, type the following command:
+grep -i "boo" /etc/passwd
+The last grep -i "boo" /etc/passwd can run as follows using the cat command too:
+cat /etc/passwd | grep -i "boo"
+
+-------
+=================================================
+grep command examples in Linux and Unix:
+
+Below is some standard grep command explained with examples to get you started with grep on Linux, macOS, and Unix:
+
+Search any line that contains the word in filename on Linux:
+grep 'word' filename
+Perform a case-insensitive search for the word ‘bar’ in Linux and Unix:
+grep -i 'bar' file1
+Look for all files in the current directory and in all of its subdirectories in Linux for the word ‘httpd’:
+grep -R 'httpd' .
+Search and display the total number of times that the string ‘nixcraft’ appears in a file named frontpage.md:
+grep -c 'nixcraft' frontpage.md
+
+
+How to use grep recursively
+You can search recursively i.e. read all files under each directory for a string “192.168.1.5”
+grep -r "192.168.1.5" /etc/
+
+OR
+grep -R "192.168.1.5" /etc/
+
+Sample outputs:
+
+/etc/ppp/options:# ms-wins 192.168.1.50
+/etc/ppp/options:# ms-wins 192.168.1.51
+/etc/NetworkManager/system-connections/Wired connection 1:addresses1=192.168.1.5;24;192.168.1.2;
+You will see result for 192.168.1.5 on a separate line preceded by the name of the file (such as /etc/ppp/options) in which it was found. The inclusion of the file names in the output data can be suppressed by using the -h option as follows:
+grep -h -R "192.168.1.5" /etc/
+
+OR
+grep -hR "192.168.1.5" /etc/
+
+Sample outputs:
+
+# ms-wins 192.168.1.50
+# ms-wins 192.168.1.51
+addresses1=192.168.1.5;24;192.168.1.2;
+How to use grep to search words only
+When you search for boo, grep will match fooboo, boo123, barfoo35 and more. You can force the grep command to select only those lines containing matches that form whole words i.e. match only boo word:
+grep -w "boo" file
+
+How to use grep to search 2 different words
+Use the egrep command as follows:
+grep -E -w 'word1|word2' /path/to/file
+
+The -E option turns on extend regular expressions. Do not use the following deprecated syntax:
+egrep -w 'word1|word2' /path/to/file
+
+Ignore case
+We can force grep to ignore case distinctions in patterns and data. For example, when I search for ‘bar’, match ‘BAR’, ‘Bar’, ‘BaR’ and so on:
+grep -i 'bar' /path/to/file
+
+In this example, I am going to include all subdirectories in a search:
+grep -r -i 'main' ~/projects/
+
+How can I count line when words has been matched
+The grep can report the number of times that the pattern has been matched for each file using -c (count) option:
+grep -c 'word' /path/to/file
+
+Pass the -n option to precede each line of output with the number of the line in the text file from which it was obtained:
+grep -n 'root' /etc/passwd
+
+1:root:x:0:0:root:/root:/bin/bash
+1042:rootdoor:x:0:0:rootdoor:/home/rootdoor:/bin/csh
+3319:initrootapp:x:0:0:initrootapp:/home/initroot:/bin/ksh
+Force grep invert match
+You can use -v option to print inverts the match; that is, it matches only those lines that do not contain the given word. For example print all line that do not contain the word bar:
+grep -v bar /path/to/file
+grep -v '^root' /etc/passwd
+
+Display lines before and after the match
+Want to see the lines before your matches? Try passing the -B to the grep:
+grep -B NUM "word" file
+grep -B 3 "foo" file1
+
+Similarly, display the lines after your matches by passing the -A to the grep:
+grep -A NUM "string" /path/to/file
+# Display 4 lines after dropped word matched in firewall log file #
+grep -A 4 "dropped" /var/log/ufw.log
+
+We can combine those two options to get most meaningful outputs:
+grep -C 4 -B 5 -A 6 --color 'error-code' /var/log/httpd/access_log
+
+
+grep command in Unix/Linux
+Options	Description
+-i	Ignore case distinctions on Linux and Unix
+-w	Force PATTERN to match only whole words
+-v	Select non-matching lines
+-n	Print line number with output lines
+-h	Suppress the Unix file name prefix on output
+-H	Print file name with output lines
+-r	Search directories recursivly on Linux
+-R	Just like -r but follow all symlinks
+-l	Print only names of FILEs with selected lines
+-c	Print only a count of selected lines per FILE
+--color	Display matched pattern in colors
+-m NUMBER	Stop grep command NUMBER selected lines
+-o	Display only matched parts of lines
+-B NUMBER	Display NUMBER lines of before matched context
+-A NUMBER	Show NUMBER lines of after matched context
+-C NUMBER	Display NUMBER lines of output context
+-s	Tell grep not print out ‘No such file or directory’ or ‘Permission denied’ errors on screen
+
+==============
+vim editor::
+-----------
+1. 1G or gg -> beginning of file.
+2. 700G   -> (ESC type 700G)-> particlar line number
+3. G  -> end of file
+4. Esc + Ctrl + End – Jump end of file
+5. Hit Esc + Ctrl + Home : Jump start of file
+6. Press Esc + gg : Go to top the file
+7. Esc + G : Go to bottom of the file
+8. Esc + G + A : Go to bottom of the file and in append text mode. In other words, jump to last line and start writing code/text.
+9. Hit Esc + A + $ : Go to bottom of the file and end of line.
+10. N (or) escap :$ for search key shown
+
+====
+Empty file without content:
+---
+: > <file_name>
+ 
+
