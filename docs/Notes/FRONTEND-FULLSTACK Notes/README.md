@@ -11,9 +11,14 @@
 - [Serverless and edge functions deep notes](./serverless-edge-functions-deep-notes.md)
 - [Observability and telemetry deep notes](./observability-and-telemetry-deep-notes.md)
 - [Full-stack real-world flows deep notes](./fullstack-real-world-flows-deep-notes.md)
+- [Frontend interview questions: beginner to 6 years](./frontend-interview-questions-beginner-to-6-years.md)
+- [Frontend interview questions with short and better answers](./frontend-interview-questions-with-short-and-better-answers.md)
+- [Frontend coding questions with solutions](./frontend-coding-questions-with-solutions.md)
+- [Frontend and full-stack mock interview rounds](./frontend-fullstack-mock-interview-rounds.md)
 
 ## Best Use
 - Start with build tooling, React, and browser internals if you want frontend foundations and rendering clarity.
 - Use the security, auth, and serverless notes together for production-ready full-stack design depth.
 - Use the frontend testing and real-world flows notes for interview examples that feel closer to actual project work.
+- Use the interview and coding files to convert frontend concepts into speaking practice and live problem solving.
 - Use the schema migration and observability notes for contract evolution and production-debugging understanding.

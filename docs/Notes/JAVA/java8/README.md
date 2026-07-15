@@ -37,6 +37,8 @@ This folder contains Java 8 preparation notes focused on deep understanding, int
 - 31_JAVA_8_INTERVIEW_QUESTIONS_INTERMEDIATE.md
 - 32_JAVA_8_INTERVIEW_QUESTIONS_ADVANCED.md
 - 33_JAVA_8_CODING_PROBLEMS_BY_LEVEL.md
+- 34_JAVA_8_MOCK_INTERVIEW_10_ROUNDS.md
+- 35_JAVA_8_CORNER_CASES_AND_EDGE_CASES.md
 
 ## Suggested Study Order
 1. JAVA_8_COMPLETE_DEEP_NOTES_A_TO_Z.md
@@ -73,6 +75,8 @@ This folder contains Java 8 preparation notes focused on deep understanding, int
 32. 31_JAVA_8_INTERVIEW_QUESTIONS_INTERMEDIATE.md
 33. 32_JAVA_8_INTERVIEW_QUESTIONS_ADVANCED.md
 34. 33_JAVA_8_CODING_PROBLEMS_BY_LEVEL.md
+35. 34_JAVA_8_MOCK_INTERVIEW_10_ROUNDS.md
+36. 35_JAVA_8_CORNER_CASES_AND_EDGE_CASES.md
 
 ## How to Use These Notes
 - Read section by section, not only as a single long document.
@@ -82,3 +86,5 @@ This folder contains Java 8 preparation notes focused on deep understanding, int
 - Use the topic files when you want a focused deep dive instead of reading the full handbook.
 - Use the solved examples and practice files after reading the concept files.
 - Use the coding problems file after revising streams, Optional, and CompletableFuture basics.
+- Use the mock interview file (34) for full 1-hour timed practice rounds combining theory, coding, and design.
+- Use the corner cases file (35) last, right before an actual interview, to sharpen answers on tricky edge-case behavior.

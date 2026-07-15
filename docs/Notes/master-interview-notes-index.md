@@ -37,6 +37,10 @@ This is the combined entry point for all interview preparation notes under `docs
 - [Serverless and edge functions deep notes](<./FRONTEND-FULLSTACK Notes/serverless-edge-functions-deep-notes.md>)
 - [Observability and telemetry deep notes](<./FRONTEND-FULLSTACK Notes/observability-and-telemetry-deep-notes.md>)
 - [Full-stack real-world flows deep notes](<./FRONTEND-FULLSTACK Notes/fullstack-real-world-flows-deep-notes.md>)
+- [Frontend interview questions: beginner to 6 years](<./FRONTEND-FULLSTACK Notes/frontend-interview-questions-beginner-to-6-years.md>)
+- [Frontend interview questions with short and better answers](<./FRONTEND-FULLSTACK Notes/frontend-interview-questions-with-short-and-better-answers.md>)
+- [Frontend coding questions with solutions](<./FRONTEND-FULLSTACK Notes/frontend-coding-questions-with-solutions.md>)
+- [Frontend and full-stack mock interview rounds](<./FRONTEND-FULLSTACK Notes/frontend-fullstack-mock-interview-rounds.md>)
 
 ### Python
 - [Python notes home](./PYTHON/README.md)
@@ -59,12 +63,14 @@ This is the combined entry point for all interview preparation notes under `docs
 - [MongoDB deep notes](<./DATABASES Notes/NOSQL/mongodb-deep-notes.md>)
 - [Cassandra deep notes](<./DATABASES Notes/NOSQL/cassandra-deep-notes.md>)
 - [Redis deep notes](<./DATABASES Notes/NOSQL/redis-deep-notes.md>)
+- [Redis interview questions with short and better answers](<./DATABASES Notes/NOSQL/redis-interview-questions-with-short-and-better-answers.md>)
 - [Solr deep notes](<./DATABASES Notes/SEARCH/solr-deep-notes.md>)
 
 ### REST API
 - [REST API notes home](<./REST-API Notes/README.md>)
 - [REST API deep notes](<./REST-API Notes/rest-api-deep-notes.md>)
 - [API alternatives: GraphQL, gRPC, WebSocket, and SSE](<./REST-API Notes/api-alternatives-graphql-grpc-websocket-sse-deep-notes.md>)
+- [API alternatives interview questions with short and better answers](<./REST-API Notes/api-alternatives-interview-questions-with-short-and-better-answers.md>)
 - [REST API interview questions](<./REST-API Notes/rest-api-interview-questions-beginner-to-6-years.md>)
 
 ### Linux
@@ -135,6 +141,7 @@ This is the combined entry point for all interview preparation notes under `docs
 - [Senior production ownership and incident guide](./JAVA/interview-guides/java-senior-production-ownership-and-incident-guide.md)
 - [Senior engineering leadership and ownership guide](./JAVA/interview-guides/java-senior-engineering-leadership-and-ownership-guide.md)
 - [Senior engineering delivery and leadership deep notes](./Interview/senior-engineering-delivery-and-leadership-deep-notes.md)
+- [Senior engineering scenarios and ownership answers](./Interview/senior-engineering-scenarios-and-ownership-answers.md)
 - [5 to 7 years mock interview rounds with ideal answers](./5-to-7-years-mock-interview-rounds-with-ideal-answers.md)
 - [HR interview questions and answers](./hr-interview-questions-and-answers.md)
 - [Project explanation answers for interviews](./project-explanation-answers-for-interviews.md)

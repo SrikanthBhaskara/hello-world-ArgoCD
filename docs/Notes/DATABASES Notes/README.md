@@ -22,6 +22,7 @@
 - [Cassandra deep notes](./NOSQL/cassandra-deep-notes.md)
 - [Cassandra CQL query patterns and interview notes](./NOSQL/cassandra-cql-query-patterns-and-interview-notes.md)
 - [Redis deep notes](./NOSQL/redis-deep-notes.md)
+- [Redis interview questions with short and better answers](./NOSQL/redis-interview-questions-with-short-and-better-answers.md)
 
 ### Search
 
@@ -35,5 +36,6 @@
 3. Use the database performance note for execution plans, partitioning, replication, pooling, and migration safety.
 4. Practice SQL query problems.
 5. Move to MongoDB, Cassandra, and Redis for document, distributed, and cache-heavy system patterns.
-6. Use Solr notes when search indexing and query systems are relevant.
-7. Finish with the broader interview Q&A and senior guide.
+6. Use the Redis interview file for cache, session, eviction, counter, and data-structure speaking practice.
+7. Use Solr notes when search indexing and query systems are relevant.
+8. Finish with the broader interview Q&A and senior guide.
