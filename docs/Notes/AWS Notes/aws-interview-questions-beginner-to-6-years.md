@@ -4,6 +4,9 @@
 
 This file prepares you for AWS interviews from beginner to around 6 years of experience, with answers designed to sound clear and convincing in interviews.
 
+Deep revision file:
+- [AWS and EKS deep notes](./aws-eks-deep-notes.md)
+
 ## Beginner (0 to 2 Years)
 
 ### 1. What is AWS?
@@ -194,3 +197,4 @@ In real projects, I often see excessive IAM permissions, static keys where roles
 - CloudWatch
 - region and AZ
 - temporary credentials vs static keys
+

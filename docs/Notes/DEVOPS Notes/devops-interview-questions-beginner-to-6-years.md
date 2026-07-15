@@ -4,6 +4,9 @@
 
 This file prepares you for DevOps interview rounds from beginner to around 6 years of experience.
 
+Deep revision file:
+- [DevOps deep notes](./devops-deep-notes.md)
+
 It includes practical answers that communicate well in interviews.
 
 ## Beginner (0 to 2 Years)
@@ -168,3 +171,4 @@ A strong pipeline should also have credential safety, failure visibility, tracea
 - deployment metrics
 - rollout and rollback thinking
 - speed vs reliability tradeoffs
+

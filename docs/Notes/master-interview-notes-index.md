@@ -35,7 +35,6 @@ This is the combined entry point for all interview preparation notes under `docs
 - [Java low-level design interview guide](./JAVA/interview-guides/java-low-level-design-interview-guide.md)
 - [Java concurrency coding interview patterns](./JAVA/interview-guides/java-concurrency-coding-interview-patterns.md)
 
-
 ### Python
 - [Python notes home](./PYTHON/README.md)
 - [Python interview index](./PYTHON/interview-prep/python-interview-questions-beginner-to-6-years-index.md)
@@ -45,6 +44,7 @@ This is the combined entry point for all interview preparation notes under `docs
 - [Python experienced: 4 to 6 years](./PYTHON/interview-prep/python-interview-questions-experienced-4-to-6-years.md)
 - [Python coding questions with solutions](./PYTHON/interview-prep/python-coding-questions-with-solutions.md)
 - [Python coding bank](./PYTHON/coding/python-repeated-coding-interview-questions.md)
+
 ### REST API
 - [REST API deep notes](<./REST-API Notes/rest-api-deep-notes.md>)
 - [REST API interview questions](<./REST-API Notes/rest-api-interview-questions-beginner-to-6-years.md>)
@@ -54,21 +54,50 @@ This is the combined entry point for all interview preparation notes under `docs
 - [Linux beginner: 0 to 2 years](<./Linux Notes/linux-interview-questions-beginner-0-to-2-years.md>)
 - [Linux intermediate: 2 to 4 years](<./Linux Notes/linux-interview-questions-intermediate-2-to-4-years.md>)
 - [Linux experienced: 4 to 6 years](<./Linux Notes/linux-interview-questions-experienced-4-to-6-years.md>)
+- [Linux deep notes](<./Linux Notes/linux-deep-notes.md>)
+- [Linux interview questions with short and better answers](<./Linux Notes/linux-interview-questions-with-short-and-better-answers.md>)
+- [Linux troubleshooting scenarios with ideal answers](<./Linux Notes/linux-troubleshooting-scenarios-with-ideal-answers.md>)
+- [Linux command and shell scripting interview examples](<./Linux Notes/linux-command-and-shell-scripting-interview-examples.md>)
+- [Linux file permissions deep scenarios](<./Linux Notes/linux-file-permissions-deep-scenarios.md>)
+- [Linux networking interview deep questions](<./Linux Notes/linux-networking-interview-deep-questions.md>)
+- [Advanced bash scripting deep notes and interview problems with solutions](<./Linux Notes/advanced-bash-scripting-deep-notes-and-interview-problems-with-solutions.md>)
 
 ### ArgoCD and Kubernetes
 - [ArgoCD and Kubernetes index](<./ARGOCD-KUBERNETES Notes/argocd-kubernetes-interview-questions-beginner-to-6-years-index.md>)
 - [ArgoCD and Kubernetes beginner: 0 to 2 years](<./ARGOCD-KUBERNETES Notes/argocd-kubernetes-interview-questions-beginner-0-to-2-years.md>)
 - [ArgoCD and Kubernetes intermediate: 2 to 4 years](<./ARGOCD-KUBERNETES Notes/argocd-kubernetes-interview-questions-intermediate-2-to-4-years.md>)
 - [ArgoCD and Kubernetes experienced: 4 to 6 years](<./ARGOCD-KUBERNETES Notes/argocd-kubernetes-interview-questions-experienced-4-to-6-years.md>)
+- [ArgoCD deep notes](<./ARGOCD-KUBERNETES Notes/argocd-deep-notes.md>)
+- [ArgoCD interview questions with short and better answers](<./ARGOCD-KUBERNETES Notes/argocd-interview-questions-with-short-and-better-answers.md>)
+- [ArgoCD troubleshooting scenarios with ideal answers](<./ARGOCD-KUBERNETES Notes/argocd-troubleshooting-scenarios-with-ideal-answers.md>)
+- [ArgoCD ApplicationSet, Helm, and sync-hooks examples](<./ARGOCD-KUBERNETES Notes/argocd-applicationset-helm-sync-hooks-examples.md>)
 
 ### Platform and Cloud
 - [Docker interview notes](<./DOCKER Notes/docker-interview-questions-beginner-to-6-years.md>)
+- [Docker deep notes](<./DOCKER Notes/docker-deep-notes.md>)
+- [Docker with Kubernetes deep notes](<./DOCKER Notes/docker-with-kubernetes-deep-notes.md>)
+- [Docker interview questions with short and better answers](<./DOCKER Notes/docker-interview-questions-with-short-and-better-answers.md>)
+- [Docker troubleshooting scenarios with ideal answers](<./DOCKER Notes/docker-troubleshooting-scenarios-with-ideal-answers.md>)
+- [Docker Compose, registry, and Kubernetes deployment examples](<./DOCKER Notes/docker-compose-registry-kubernetes-deployment-examples.md>)
 - [DevOps interview notes](<./DEVOPS Notes/devops-interview-questions-beginner-to-6-years.md>)
+- [DevOps deep notes](<./DEVOPS Notes/devops-deep-notes.md>)
+- [DevOps interview questions with short and better answers](<./DEVOPS Notes/devops-interview-questions-with-short-and-better-answers.md>)
+- [DevOps troubleshooting scenarios with ideal answers](<./DEVOPS Notes/devops-troubleshooting-scenarios-with-ideal-answers.md>)
+- [CI/CD, GitOps, rollback, and observability architecture examples](<./DEVOPS Notes/cicd-gitops-rollback-observability-architecture-examples.md>)
 - [Jenkins, Terraform, Terragrunt interview notes](<./JENKINS-TERRAFORM-TERRAGRUNT Notes/jenkins-terraform-terragrunt-interview-questions-beginner-to-6-years.md>)
 - [AWS interview notes](<./AWS Notes/aws-interview-questions-beginner-to-6-years.md>)
+- [AWS and EKS deep notes](<./AWS Notes/aws-eks-deep-notes.md>)
+- [AWS ECS deep notes](<./AWS Notes/aws-ecs-deep-notes.md>)
+- [AWS EKS interview questions with short and better answers](<./AWS Notes/aws-eks-interview-questions-with-short-and-better-answers.md>)
+- [AWS troubleshooting scenarios with ideal answers](<./AWS Notes/aws-troubleshooting-scenarios-with-ideal-answers.md>)
+- [EKS IAM, Ingress, External Secrets, and ECR sample YAML and architecture notes](<./AWS Notes/eks-iam-ingress-external-secrets-ecr-sample-yaml-and-architecture-notes.md>)
 - [Spring Boot and Java backend interview notes](<./SPRINGBOOT-JAVA-BACKEND Notes/springboot-java-backend-interview-questions-beginner-to-6-years.md>)
 - [GitOps, Helm, External Secrets interview notes](<./GITOPS-HELM-EXTERNALSECRETS Notes/gitops-helm-externalsecrets-interview-questions-beginner-to-6-years.md>)
 - [Kubernetes deep interview notes](<./KUBERNETES-DEEP Notes/kubernetes-deep-interview-questions-beginner-to-6-years.md>)
+- [Kubernetes interview questions with short and better answers](<./KUBERNETES-DEEP Notes/kubernetes-interview-questions-with-short-and-better-answers.md>)
+- [Kubernetes troubleshooting scenarios with ideal answers](<./KUBERNETES-DEEP Notes/kubernetes-troubleshooting-scenarios-with-ideal-answers.md>)
+- [Kubernetes YAML examples for Deployment, Service, Ingress, ConfigMap, Secret, probes, and RBAC](<./KUBERNETES-DEEP Notes/kubernetes-yaml-examples-for-deployment-service-ingress-configmap-secret-probes-rbac.md>)
+- [Helm interview questions with short and better answers](<./KUBERNETES-DEEP Notes/helm-interview-questions-with-short-and-better-answers.md>)
 - [Microservices and system design interview notes](<./MICROSERVICES-SYSTEM-DESIGN Notes/microservices-system-design-interview-notes-beginner-to-6-years.md>)
 - [Maven, SonarQube, testing interview notes](<./MAVEN-SONARQUBE-TESTING Notes/maven-sonarqube-testing-interview-notes-beginner-to-6-years.md>)
 
@@ -92,14 +121,3 @@ This is the combined entry point for all interview preparation notes under `docs
 - Practice the project explanation file until you can explain your work naturally.
 - Use the mock rounds for spoken practice, not just reading.
 - For 5 to 7 year roles, practice answering with tradeoffs, ownership, and incident thinking.
-
-
-
-
-
-
-
-
-
-
-

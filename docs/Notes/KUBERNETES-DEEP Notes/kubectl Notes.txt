@@ -1,0 +1,218 @@
+kubectl Notes: Kubernetes Ultimate Cheat Sheet
+----------------------------------------------
+KUBERNETES CHEAT SHEET
+---
+
+1. Core Concept Map
+
+Docker → Container 
+Kubernetes → Manages Containers 
+
+Deployment → Pods → Service → User
+---
+2. Setup Commands
+
+Using Minikube
+
+minikube start # Start cluster
+minikube stop # Stop cluster
+minikube status # Check status
+
+Using kubectl
+
+kubectl version # Check kubectl
+kubectl cluster-info # Cluster details
+---
+
+3. View Resources (MOST USED)
+
+kubectl get all # Everything
+kubectl get pods # Pods
+kubectl get deployments # Deployments
+kubectl get svc # Services
+kubectl get nodes # Nodes
+kubectl get ingress # Ingress
+
+--> Add -o wide for more info
+---
+
+4. Debugging Commands (IMPORTANT)
+
+kubectl describe pod <pod> # Detailed info
+kubectl logs <pod> # Logs
+kubectl logs -f <pod> # Live logs
+kubectl exec -it <pod> -- sh # Login inside
+kubectl get events # Cluster issues
+---
+
+5. Pod Commands
+
+kubectl apply -f pod.yaml # Create pod
+kubectl delete pod <pod> # Delete pod
+kubectl get pods -o wide # Pod details
+---
+
+6. Deployment Commands
+
+kubectl create deployment myapp --image=nginx
+kubectl get deployments
+kubectl scale deployment myapp --replicas=3
+kubectl delete deployment myapp
+---
+
+7. Rollout (Update / Rollback)
+
+kubectl rollout status deployment/myapp
+kubectl rollout history deployment/myapp
+kubectl rollout undo deployment/myapp
+kubectl set image deployment/myapp nginx=nginx:latest
+---
+
+8. Service Commands
+
+kubectl expose deployment myapp --type=NodePort --port=80
+kubectl get svc
+minikube service myapp # Open in browser
+---
+
+9. Labels & Selectors
+
+kubectl get pods --show-labels
+
+-->Used to connect:
+
+Service → Pods (via labels)
+---
+
+10. YAML Operations
+
+kubectl apply -f file.yaml # Create/update
+kubectl delete -f file.yaml # Delete
+---
+
+11. Config & Secrets
+
+kubectl create configmap app-config --from-literal=ENV=dev
+kubectl get configmaps
+
+kubectl create secret generic db-secret \
+--from-literal=username=admin \
+--from-literal=password=pass
+kubectl get secrets
+---
+
+12. Namespace Commands
+
+kubectl create namespace dev
+kubectl get pods -n dev
+kubectl delete namespace dev
+---
+
+13. Resource Usage
+
+kubectl top pods
+kubectl top nodes
+---
+
+14. Autoscaling
+
+kubectl autoscale deployment myapp --cpu-percent=50 --min=2 --max=10
+---
+
+15. Ingress
+
+minikube addons enable ingress
+kubectl get ingress
+kubectl describe ingress <name>
+---
+
+16. Quick Workflow ( MUST REMEMBER)
+
+# Start
+minikube start
+
+# Deploy app
+kubectl create deployment myapp --image=nginx
+
+# Expose app
+kubectl expose deployment myapp --type=NodePort --port=80
+
+# Access
+minikube service myapp
+
+# Scale
+kubectl scale deployment myapp --replicas=3
+
+# Debug
+kubectl logs <pod>
+kubectl describe pod <pod>
+---
+
+17. Key Concepts (One-Liners)
+
+Pod → Smallest unit
+
+Deployment → Manages pods
+
+Service → Exposes pods
+
+Ingress → Domain routing
+
+ConfigMap → Config data
+
+Secret → Sensitive data
+
+PVC → Storage
+---
+
+18. Common Mistakes
+
+Wrong labels → Service won’t work
+No resource limits → crash issues
+No probes → unhealthy app
+Using NodePort in production
+---
+
+19. Golden Debug Flow
+
+kubectl get all
+kubectl describe pod <pod>
+kubectl logs <pod>
+kubectl get events
+---
+
+20. Final Mental Model
+
+Deployment = Manager 
+Pod = Worker 
+Service = Load Balancer 
+Ingress = Entry Gate 
+ConfigMap = Settings 
+Secret = Password
+---
+
+----------------------------
+=================
+sudo kubectl delete pod bitdefender-6df46f74f4-6cpjc -n mars
+If it is stuck in Terminating:
+---
+sudo kubectl delete pod bitdefender-6df46f74f4-6cpjc -n mars --grace-period=0 --force
+
+If this pod belongs to a Deployment, Kubernetes should create a new one automatically. You can watch it with:
+---
+sudo kubectl get pods -n mars -w
+
+If you want to restart the whole deployment more cleanly instead:
+---
+sudo kubectl rollout restart deployment/bitdefender -n mars
+
+kubectl -n mars delete service bitdefender
+kubectl -n mars delete pod bitdefender-6df46f74f4-6cpjc --grace-period=0 --force
+sudo kubectl -n mars delete secret bitdefender-svc-cert secret-bitdefender-keystore-password secret-bitdefender-aws-access-key-id secret-bitdefender-aws-secret-access-key secret-bitdefender-product-id --ignore-not-found
+
+==================
+To get the values:
+ 
+kubectl get secret amp-scanner-gen-secrets -n mars \
+  -o jsonpath='{.data.ampkitActivationCode}' | base64 -d
+

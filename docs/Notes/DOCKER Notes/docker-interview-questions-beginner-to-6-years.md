@@ -4,6 +4,10 @@
 
 This file prepares you for Docker interviews from beginner to around 6 years of experience.
 
+Deep revision files:
+- [Docker deep notes](./docker-deep-notes.md)
+- [Docker with Kubernetes deep notes](./docker-with-kubernetes-deep-notes.md)
+
 It includes:
 - question
 - short answer
@@ -237,3 +241,4 @@ A good image can still fail at deploy time because of registry reachability, bad
 - `.dockerignore`
 - image security basics
 - logs and startup troubleshooting
+

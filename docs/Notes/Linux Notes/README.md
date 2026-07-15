@@ -7,6 +7,13 @@
 
 ## What You Have Now
 
+### Deep Revision
+- [linux-deep-notes.md](linux-deep-notes.md) - interview-focused deep Linux summary
+- [linux-interview-questions-with-short-and-better-answers.md](linux-interview-questions-with-short-and-better-answers.md) - structured Linux interview Q&A
+- [linux-troubleshooting-scenarios-with-ideal-answers.md](linux-troubleshooting-scenarios-with-ideal-answers.md) - production-style Linux troubleshooting scenarios
+- [linux-command-and-shell-scripting-interview-examples.md](linux-command-and-shell-scripting-interview-examples.md) - command and scripting examples for interviews
+
+
 ### 📚 Complete Documentation Set
 
 Your Linux folder now contains **detailed, comprehensive notes** organized as follows:
@@ -694,5 +701,7 @@ See **[JAVA/README.md](../JAVA/README.md)** for comprehensive learning paths, pr
 ---
 
 *Last Updated: March 16, 2026*
+
+
 
 
