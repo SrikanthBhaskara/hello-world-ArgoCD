@@ -7,6 +7,7 @@ This folder contains study notes, interview preparation material, and topic-spec
 ### Core Engineering
 - [Java](./JAVA/README.md)
 - [Linux](<./Linux Notes/README.md>)
+- [Git](<./GIT Notes/README.md>)
 - [REST API](<./REST-API Notes/README.md>)
 - [Spring Boot and Java Backend](<./SPRINGBOOT-JAVA-BACKEND Notes/README.md>)
 - [Microservices and System Design](<./MICROSERVICES-SYSTEM-DESIGN Notes/README.md>)
@@ -31,9 +32,7 @@ This folder contains study notes, interview preparation material, and topic-spec
 
 ## Recommended Study Path
 
-1. Start with Java, Linux, REST API, and Spring Boot basics.
+1. Start with Java, Linux, Git, REST API, and Spring Boot basics.
 2. Move to Docker, Kubernetes, ArgoCD, GitOps, and AWS.
 3. Revise database, testing, microservices, and system design material.
 4. Finish with interview support files and mock rounds.
-
-
