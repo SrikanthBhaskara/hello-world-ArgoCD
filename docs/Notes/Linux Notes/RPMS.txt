@@ -1,0 +1,148 @@
+RPMS Related Info:
+============================
+
+To install RPM: sudo rpm -ivh ccp-datastore-rpm-12.5.1-42.noarch.rpm    <rpmfile.rpm>
+To Upgrade RPM: sudo rpm -Uvh ccp-datastore-rpm-12.5.1-42.noarch.rpm    <rpmfile.rpm>
+To Remove RPM : sudo rpm -e ccp-datastore-rpm-12.5.1-219.noarch		<rpmfile.rpm>
+
+To List of RPM package :  rpm2cpio ccp-datastore-rpm-12.5.1-SU3-SNAPSHOT.rpm | cpio -idmv
+
+Query a Information of Installed RPM Package: rpm -qi ccp-datastore-rpm-12.5.1-219.noarch
+List All Installed RPM Packages : rpm -qa
+List Recently Installed RPM Packages: rpm -qa --last    ( -qa (query all) option)
+List all files of an installed RPM package : rpm -ql BitTorrent   
+ Get the Information of RPM Package Before Installing: rpm -qip ccp-datastore-rpm-12.5.1-42.noarch.rpm   -qip (query info package) 
+Verify a RPM Package : rpm -Vp sqlbuddy-1.3.3-1.noarch.rpm
+Version of the rpm: rpm -q  ccx-socketio-rpm.rpm
+Version of the rpm without installtion: rpm -qp  ccx-socketio-rpm.rpm
+Verify all RPM Packages: rpm -Va
+
+rpm -qi   ccx-socketio-rpm.rpm  :::: installed rpm descrption.
+rpm -qip ccx-socketio-rpm.rpm  :::: without installed rpm descrption.
+
+
+# rpm -i --install (install new RPM; error if already installed)
+# rpm -U --upgrade (delete existing RPM, if any; install new)
+# rpm -F --freshen (update RPM only if package already installed)
+# rpm -e --erase (remove, delete, expunge)
+# rpm -q [packages] [information]
+# rpm -qa (all installed packages)
+# rpm -q package_name
+# rpm -qf (filename)
+# rpm -qp (package filename)
+rpm -ql  (list the content for installed RPM)
+ rpm -qlp (before instattion list the content)
+
+
+
+Hint: When searching for a particular RPM package when the exact name is not known, a command pipeline such as:
+
+To list out particular PRM => $  rpm -qa | grep ccp-datastore-rpm-12.5.1-48.noarch
+To list all RPMS => rpm -qa 
+
+
+==============================
+
+Cassandra -3.11.5
+
+sudo service cassandra start   = to start the cassandra service
+
+
+./cqlsh -u cassandra  => to check cassandra status
+
+sudo yum remove "cassandra-*"
+
+ ps auwx | grep cassandra
+
+
+==============================
+
+ unzip whatever.war
+
+or
+jar xvf test.war
+-------------------------------------------------------------------
+port finding...
+===========================
+In cmd:
+netstat -na | find "8080"
+In bash:
+netstat -na | grep "8080"
+In PowerShell:
+netstat -na | Select-String "8080"
+
+----------------------------------------------------------------------
+Run any one of the following command on Linux to see open ports:
+sudo lsof -i -P -n | grep LISTEN
+sudo netstat -tulpn | grep LISTEN
+sudo ss -tulpn | grep LISTEN
+sudo lsof -i:22 ## see a specific port such as 22 ##
+sudo nmap -sTU -O IP-address-Here
+
+---------------------------------------------------------------------------
+ lsof command
+The syntax is:
+sudo lsof -i -P -n
+sudo lsof -i -P -n | grep LISTEN
+doas lsof -i -P -n | grep LISTEN # OpenBSD #
+
+
+----------------------------
+Viewing the Internet network services list
+
+less /etc/services
+
+
+
+https://www.cyberciti.biz/faq/unix-linux-check-if-port-is-in-use-command/
+
+
+
+
+======================
+
+Extarct tar file 
+
+
+tar –xvzf documents.tar.gz
+
+ZIP:
+
+unzip file.zip
+unzip file.zip -d destination_folder
+
+
+cassandra 3.11.4
+
+=====================================================
+Any Deployement RPM location
+
+/local_app/jenkins/workspace/CCP_1251_SU3_ANY_DEPLOY_RPMS/rpms/ccp-datastore/target/rpm/ccp-datastore-rpm/RPMS/noarch
+
+
+=====================
+
+lsof -i:1098  estbilisting port list
+
+===============
+ip route show
+sudo ip route add default via <gateway IP>
+
+
+====================================================================
+ jar xvf SubsystemRmCm.jar  -To list of jar files
+
+===========================
+cmd: sudo service cassandra start
+cmd: systemctl status cassandra.service
+cmd: journalctl -xe
+cmd: /etc/init.d/cassandra
+cmd: systemctl daemon-reload --> to reload init.d/cassandra
+cmd: /opt/cisco/mmca/logs/ccp-ds-storage
+cmd: ls -l /usr/lib64/libjemalloc.so.1
+
+===============
+58
+59
+54
+57

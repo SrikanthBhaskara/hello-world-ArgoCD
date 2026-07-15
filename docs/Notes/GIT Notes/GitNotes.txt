@@ -1,0 +1,218 @@
+Git Commands::
+---------------------
+Powershell cmd to install Git:
+--
+winget install --id Git.Git -e --source winget
+---
+git config user.name "Your Name"
+git config user.email "youremail@yourdomain.com"
+git config --list ==> list all
+-----
+
+git fetch	==>
+git checkout	==>
+
+git restore .  ==>To discard localchnages
+git pull origin master ==> fetch from master
+git checkout main ccbu-common-subsystem/pom.xml  ==> replace file with main
+
+git restore --staged <file>..." to unstage
+git restore ==> this remove all local changes.
+
+git clean	==> Removes untracked files from the working directory. This is the logical counterpart to git reset, which (typically) only operates on tracked files.
+git commit --amend  ===Passing the --amend flag to git commit lets you amend the most recent commit.last commit message change.
+
+git revert	==> 
+
+git revert
+Undoes a committed snapshot. When you discover a faulty commit, reverting is a safe and easy way to completely remove it from the code base.
+git status
+Displays the state of the working directory and the staged snapshot. You’ll want to run this in conjunction with git add and git commit to see exactly what’s being included in the next snapshot.
+
+git revert
+Undoes a committed snapshot. When you discover a faulty commit, reverting is a safe and easy way to completely remove it from the code base.
+
+git reset 	==>
+
+git reset --hard HEAD~1
+This command will remove the latest commit.
+
+git reset --hard HEAD~3
+This command will remove the latest three commits.
+
+git reset --hard <xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx> <= hashcode  :: To remove to commits upto hashcode
+
+git push -f origin <branch Name> After remove commit we have to push forcefully 
+------------------
+git reset HEAD~  revert local commits in Git
+-------------------------
+git checkout main -- <file-path>  restore file from master to local branch
+------------------------
+git merge --abort --> Abort the current Merge.
+
+-----------------
+modify git commit message before pushing
+git commit --amend -m "filename matches the patterns and skip processing for copy"
+
+
+git branch --set-upstream-to=origin/<branch> <create_branch>
+git reset --hard origin/master TO checkout to master changes
+-------------
+Git Cherry-Pick:
+--------------
+git cherry-pick xxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+git cherry-pick --continue
+git cherry-pick --abort
+Git paticular commit Branch:
+
+Git delete Local Branch:
+----------------------------
+git branch -d  <test_branch>
+error: The branch 'PSIRT_DOJO_CSCwe80670' is not fully merged.
+git branch -D 
+
+Git Deleted Remote Branch:
+----------------------------
+git push origin -d  PSIRT_DOJO_CSCwe80670
+----------------------
+Git Rebase:
+
+ (fix conflicts and then run "git rebase --continue")
+  (use "git rebase --skip" to skip this patch)
+  (use "git rebase --abort" to check out the original branch)
+
+----
+
+To remove them from GitHub but keep them locally
+
+git rm --cached docs/Avira_spluk.md docs/CDR_spluk.md
+
+-----
+Git log:
+-------------------------
+git log --> select particular hash commit
+git checkout hash-commits
+git git switch -c <new-branch-name>
+
+git stash            ====> save changes current files changes
+git checkout new-Branch
+git stash pop       =====> changes will come to new Branch
+git stash list   ====> List all stash commit
+-------------------------------
+git clone <directory name>
+cd <directory name>   
+git checkout < production branch>
+git chekcout -b <private branch>
+make changes and git add, git commit
+git push origin <private branch> 
+when you need to pull from <production branch>
+git pull origin <production branch>
+===============================
+To rasie PR for ES branches Commands  
+======================
+git checkout 
+git checkout uccx_r1251_su2_es
+git pull
+git checkout -b branch-name uccx_r1251_su2_es
+Eg : git checkout -b cdet_fix_es uccx_r1251_su2_es
+git pull
+git branch --set-upstream-to=origin/uccx_r1251_su2_es CSCwb09000_SU2_Fix
+git pull
+git add file1, 
+git commit -m "comment .. . . . "
+git push origin CSCwb09000_SU2_Fix
+==========================
+------------------------------------
+To clone from particular branch from uccx
+
+git clone -b ccx_su3_private https://github5.cisco.com/ccbu-uccx/uccx.git
+------------------------------
+1. in github we can hilght line with #L<Linenumber>
+2. in github we can hilghtmutiple lines with #L<Linenumber from - ToLinenumber>
+Ex: (#L117-L148)
+3.  How to highlight multiple lines different (e.g. #L5,L11,L24-L33,L68).
+
+https://github4-chn.cisco.com/ccbu-shared/common_vos/blob/e984b4cc1926cf41f58e65b4361f362769f8057d/vos_fission/Projects/platform-app/drf/build.xml#L55
+
+------------------------------
+git checkout branch_name ./path_to_file/file_name.[file_extension]   revert with branch_name
+
+If, however you want to remove non-consecutive commits, you’ll need to use an interactive rebase.
+
+[ ]Find the last commit hash containing all of the commits you want to remove using the git reflog command.
+[ ]Start an interactive rebase with git rebase -i <hash>.
+[ ]In the edit screen, find the commit lines you want to remove and remove them.
+[ ]Save and exit (you may need to resolve the conflicts)
+[ ]End the interactive rebase with git rebase --continue or start over by aborting the rebase.
+
+Step 2 - Delete the commits from remote
+To delete commits from remote, you will need to push your local changes to the remote using the git push command.
+>>git push origin HEAD --force
+
+// delete branch locally
+git branch -d localBranchName
+
+// delete branch remotely
+git push origin --delete remoteBranchName
+
+// delete private branch from main
+git branch -D -f PSIRT_Cassandra_Update
+
+======
+git fetch origin
+git reset --hard origin/main
+
+
+==========================
+Renaming the Branch A to B:
+
+1. git branch -m  QSW_Tomcat_issue OCR_support
+2. git push origin :QSW_Tomcat_issue OCR_support
+
+
+git branch -m private_1 private_2
+git push origin :private_1 private_2
+git push -u origin private_2
+git checkout private_2
+git branch --unset-upstream
+git branch -u origin/private_2
+
+==============================
+Switching remote URLs from HTTPS to SSH
+-----------------------
+1.Open Git Bash.
+2.Change the current working directory to your local project.
+3.List your existing remotes in order to get the name of the remote you want to change.
+	$ git remote -v
+	> origin  https://github.com/OWNER/REPOSITORY.git (fetch)
+	> origin  https://github.com/OWNER/REPOSITORY.git (push)
+4.Change your remote's URL from HTTPS to SSH with the git remote set-url command.
+	$git remote set-url origin git@github.com:OWNER/REPOSITORY.git
+5. Verify that the remote URL has changed.
+
+	$ git remote -v
+	# Verify new remote URL
+	> origin  git@github.com:OWNER/REPOSITORY.git (fetch)
+	> origin  git@github.com:OWNER/REPOSITORY.git (push)
+
+
+git add <file_path>  -> add the file into local branch
+git commit -m "<msg_content>"  --> description about the commit
+git push origin <private_branch>   --> committing the changes to particular branch.
+
+git fetch -->   checking the changes.
+ 
+git pull origin main  --> update the changes form the main to private branch
+
+------------------------
+git change Remote repo commits from on branch to other branch:
+
+git remote -v
+git remove origin <repo>
+git remote add <repo/ssh_one>
+git push origin -f
+-------------------------------
+Git local branch rename:
+
+git branch -m test_branch_x test_branch_y
+

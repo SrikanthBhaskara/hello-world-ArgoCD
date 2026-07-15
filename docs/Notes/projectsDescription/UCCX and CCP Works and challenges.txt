@@ -1,0 +1,830 @@
+UCCX:
+-------------------------------------------------------
+1. Malicious content detect and restrict the file or zip
+2. Openfire Migrqation uccx openfire from 4.4.4 to 4.8.1 
+3. Handlebars version upgraded from 1.3.0 to 4.7.7.
+4. PasswordEncryption: Password encryption and decryption AES-CBC algorithm by using Web Crypto API.
+5. XSS in Wizard vulnerability fix in RmCm Wizard for Add a Team. 
+6. Password in Response :: CSCwh61621: Easily decodable password sent over HTTPS
+7. MissingSecurityHeader
+8. http2 : remove http2 cra for HTTP/2 Rapid Reset Attack vulnerability  UCCX.
+9. Bouncycastle:: version upgrade from 1.64 to 1.74.
+10. Dojo version upgraded from 1.1.1 to 1.2.4 .
+11. struct2 upgrade from 2.5.20 to 2.5.33.
+12. XStream version from 1.4.2 to 1.4.20.
+13. MomentJS version upgrade from 2.17.1 to 2.29.4 .
+14. POI version upgrade from 3.17 to 5.2.1.
+15. PNG and GIF 404 Error  fixed.
+16. Log4j migration from 2.17.1 to 2.17.2 with log4j-api, log4j-1.2-api and log4j-core.
+17. xmlbeans version upgrade from 2.6.0 to 3.0.0.
+18. upgarde the latest version of xstream from 1.4.11 to 1.4.19.
+19. XSS_Vulnerability: Cross-Site Scripting Vulnerability_validation code for special characters.
+20. upgrade spring_quartz version from  quartz version from 1.8.6 to 2.3.2 and latest version quartz required spring 3.1.0 version.
+
+CCP:
+-------------------------------------------------------------------------
+1. Latest Solr Indexer records remove during Switch Back for 15.0.
+2. Solr 4.6.0 and 8.11.0 SSL/TLS connection for SOLR API.
+3. DB PURGE in upgraded CCP 15.0 not working as Expected.
+4. Fresh Install Stopping the ccp-ds-indexer service issue fixed.
+5. BuildTrainNumberFix: compare active version and inactive version for forward and backward .
+6.  Added Security Constraints to redirect HTTP to HTTPS for JS and CSS 
+7. restlet_solr_CSCwe78641:: excluded restlet from solr and included in restlet 2.4.0.
+8. spring migration 4.3.6 to 5.3.39 and from 4.3.11.Final to 5.2.18.Final.
+9. POI: exclusion of 4.1.2 poi versions and included poi 5.2.5 version in solr-zip 
+10. SOLRBACKUP API issue fixed.
+11. Solr version upgraded from 4.6 to solr-client to 8.2.0 and solr -server to 8.11.2.
+12. updated the Antisamy jar from 1.6.6 to 1.6.8.
+13. Upgraded http-core from 4.2.5 to 4.4.14 and http-client 4.2.6 to 4.5.13.
+----------------------------------------------------------------------------
+
+
+
+
+
+
+Intro:
+=======================
+My name is Srikanth, and I have 5 years of experience as a Software Engineer. During this time, I have developed both web-based and enterprise-level applications. I have gained extensive hands-on experience in core concepts of Object-Oriented Programming (OOP), multithreading, collections, and exception handling.
+
+I am also proficient in working with popular frameworks such as Spring, Spring Boot, Spring MVC, and Hibernate. Eariler, I am part of a Cisco project called UCCX Contact Center, where I have been working for the past 2 years. This project has provided me with the opportunity to handle large-scale enterprise solutions and sharpen my skills in application development and system integration.
+
+Before this, I worked for 2 years at a startup, where I developed two key projects:
+
+A Customer Service Platform, designed to streamline customer interactions and service management.
+A Product Monitoring System, which focused on real-time tracking and performance analysis of products.
+======================
+
+
+======================
+sigleton can we breaks
+spring life cycle.
+multiple database can we use signle beans.
+micro services.
+java8 new hashmap changes.
+what is genrics.
+concreat hashmap.
+springboot
+microservices
+restAPI.
+
+------------------------
+1. XSS_Vulnerability::
+=======================
+Description:
+	-------------
+	We were able to inject client-side scripts (e.g. JavaScript) into the application due to the identified stored XSS vulnerabilities, 
+	which affected multiple user-controlled input fields.The payloads were executed on different pages viewed by other users.
+	Frontend filtering was in place when trying to inject the payload directly into the web page.Injecting the payload directly in the request bypassed the frontend filtering in place.payload run in the victim’s browser with java script alert message.
+
+	Impact:
+	-------------
+	An attacker is able to inject JavaScript code into the aforementioned parameters and perform operations in the victim user’s browser.
+	Thus, the attacker can execute commands on behalf of the victim user, which could lead to unauthorized data modification, or exfiltration 
+	of sensitive information by exploiting this vulnerability.
+	Likelihood:
+	------------
+	An authenticated user with access to the aforementioned(denoting a thing) menus may attack other users.
+	
+	Frontend filtering was in place when trying to inject the payload directly into the web page.
+	Injecting the payload directly in the request bypassed the frontend filtering by the payload was interpreted by the browser.
+	
+	Solution:
+	---------------------------
+	For this we decide to validate at server-side user controlled input fields.If an attacker is trying to inject the payload
+	directly into the web page with JavaScript filtering code 
+	server-side validation will validate for special characters and it will throw Exception. Attackers  not able to inject payloads.
+
+	Challenges Faced:
+
+	-------------------
+	While fixing the Cross-Site Scripting vulnerability attcker able to inject malcilious content for that we have validated special characters with regular Experssion 
+	String regExp= "^(?=.*[&()\\\\{}:\"',?/*+<>|%])";
+	Pattern pattern = pattern.compile(regExp);
+	Matcher matcher = pattern.matcher(inputString);
+
+	Here in Linux envirnmonet and windows escape characters issue.
+------------------------------------
+2. quartz migration::
+------------------------
+	Previous quartz version is 1.8.6, it has one vulnerability CVE-2019-13990.So we decided to change quartz version.
+	We changed quartz version from 1.8.6 to 2.3.2 i.e latest and which has no vulnerability. For the latest version quartz required spring 3.1.0 version.
+
+	The following changes are done as this code-review PR 
+
+	Quartz version changed from 1.8.6 to 2.3.2(Latest version).
+	2 We are using springquartz hence we have to migrate spring from 3.0.3 to 3.1.0 for newer version of quartz support.
+	Added new spring varible in pom files chnaged the hardcoded value.
+	${spring-version}
+	Added spring dependency so it doesn't older version springframworks.
+
+	org.springframework
+	spring-aop
+	${spring-version}
+
+
+	org.springframework
+	spring-web
+	${spring-version}
+	Code changes due to new quartz.
+	SimpleTriggerBean deprecated in springframework 3.1.0 introduced SimpleTriggerFactoryBean.
+	JobDetail jobDetail = JobBuilder.newJob(job)
+	Trigger trigger = TriggerBuilder.newTrigger()
+	Spring filter Attribute changed in springsecurity frameworks 3.1.0,It got depericated they introduced security.
+	filterss= "none"
+	TO
+	security='none'
+	Intercept-url scope changed to http
+	<security:intercept-url pattern="/authenticate/" filters="none" requires-channel="https"/> chnaged
+	TO
+	<security:http pattern="/authenticate/" security='none'/
+	getParentLogger method introduced in springframwork spring-jdbc 3.1.0 we are using from spring-jdbc package.
+	Hibernate-validator-version updated from 4.0.2.GA to 5.1.0.Final[For Runtime Excepation: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.validation.beanvalidation.OptionalValidatorFactoryBean#0].
+	For "extends" keyword added to GrantedAuthority in spring security Framework 3.1.0 :Type mismatch: cannot convert from CollectionCollection authorities = authenticate.getAuthorities();
+	Added username and password token using successfulAuthentication to verify the password.
+	Deencapsulation.invoke(uccxApiAuthFilter, "successfulAuthentication", HttpServletRequest.class, HttpServletResponse.class,auth);
+
+
+
+
+	Here we have upgraded quartz version from 1.8.6 to 2.3.2, After upgrade LD reports not showing up in CUIC and finesse desktop. For we check application logs and tomcat logs there we could not seen any issue and finally we checked heartbeat logs there we could see there any issue heartbeat server going to shutdown state after some of starting the server.
+
+
+	For did some R&D, I found there is a dependcy on spring we used spring version 3.0.0 version. for this quertz suppoert of 2.3.2 is minium 3.1.0. migrated spring and hibernate versions.
+	Main issue is SimpleTriggerBean(3.0.3 version is there) deprecated in springframework 3.1.0 introduced SimpleTriggerFactoryBean. Then it started server and LD reports loaded at that Time.
+	For identify the issue we took 1 week time becacues monolithic project. Early we thought issue from LD component. Then we started analysis we conculded and fixed ccx side.
+------------------------
+-----------------------
+3. Insecure Transmission of Password::
+	Problem:
+	The application transmits clear text password from client to server in Change Password pages over https. An attacker may steal a victim user’s login credentials leading to account compromise.
+
+	Solution:
+
+	Even though the entire communication is over HTTPS which would encrypt the entire communication payload however it is good practice to transmit the password hashes rather than the actual password.The following options was considered to address this issue
+
+	Hashing the passwords:
+	In this option, the password is hashed at the client side and then the hash is sent across to server. The server also calculates the hash and compares the received hash. In this option, password is never tranmisted or stored. This option is not suitable in this scenario since the password is sent upstream and the final authentication is not performed by UCCX but by upstream servers.
+	Also, the current design is such that all these passwords are encrypted and stored in /opt/cisco/uccx/properties/extusers.properties file hence the passwords are required to be transmitted to UCCX and only hashes wont work.
+
+	Encrypt the password:
+	In this option, the password is encrypted at client side and the encrypted password is transmitted to server side. Hence the password is never transmitted in plain text even though the underlying transmission level protocol is HTTPS.
+
+	This option requires the encryption to performed at the browser end using java-script libraries and decryption at the server(Java) end, Since this is Symmetric key encryption, the key and Initialization vector( which adds randomness to the key) has to be shared between client and server. 
+	<TDB> Provide the reference to Symmetric key and IV
+
+	Transmission of secret key : 
+	In Symmetric key encryption, same key is used for both encryption and decryption hence the client code needs to know the key to encrypt. To obtain the key, the client code will invoke a method which resides on the server side, After obtaining the key, the passwords in the change password screens are encrypted by this key and sent across to server.
+	The important points to note are
+
+	The key to encrypt the passwords are obtained dynamically and not embedded in the page ( In hidden fields etc)
+	The key is known both to server and client which is basis for symmetric key encryption
+	Only the encrypted passwords are sent across to the server. If the request is intercept (by browser interceptor or proxy), the actual passwords are not visible since they are now encrypted
+	Same Code snippets:
+	1.  Encrypt the password Client Side:
+	below code for encrypt the password in client side by using Secret key and IV with crypto package.  Encrypt the password using AES-CBC algorithm then it will convert the IV and encrypted password to base64
+
+	2. Decrypt the password is server side:
+	Here we are decrypt the password by using static secret key and encrypted IV and Encrypted Password.
+----
+
+
+
+	The above code for password encryption and decryption demonstrates several technical advantages. Here are the key aspects that enhance its functionality, security, and usability:
+
+	1. Use of AES Encryption:
+	Advantage:
+	AES (Advanced Encryption Standard) is widely regarded as a secure and efficient encryption algorithm.
+	It is fast and suitable for both hardware and software implementations, making it ideal for applications requiring high-performance encryption.
+	Security:
+	AES with CBC mode ensures that data is encrypted in blocks with dependency on the previous block (chaining), adding security by making the encryption resistant to simple brute-force attacks.
+	2. CBC Mode with IV (Initialization Vector):
+	Advantage:
+	CBC (Cipher Block Chaining) mode enhances encryption security by introducing an initialization vector (IV). This ensures that even if the same plaintext is encrypted multiple times, the output ciphertext is different each time due to the unique IV.
+	Prevents Pattern Analysis:
+	Without an IV, repeating patterns in plaintext could be detectable in the ciphertext. Using an IV randomizes the output.
+	3. Compatibility with Base64 Encoding:
+	Advantage:
+	Encrypted data and the IV are encoded in Base64, ensuring they can be safely transmitted or stored in text-based formats (e.g., JSON, HTTP headers).
+	Cross-Platform Compatibility:
+	The use of Base64 allows seamless encryption/decryption between different platforms (e.g., JavaScript for encryption, Java for decryption).
+	4. Reusability and Scalability:
+	Reusable Methods:
+	Both passwordDecryption and generateRandomSecretKey are modular and reusable across different parts of the application.
+	Scalable for Larger Applications:
+	These methods can easily integrate with enterprise systems where secure password encryption and decryption are required.
+	5. Secure Key Generation:
+	Advantage:
+	The generateRandomSecretKey method leverages KeyGenerator with a secure random number generator, ensuring unpredictability in key creation.
+	256-bit Key Option:
+	Although the implementation reduces the key size to 16 bytes (128 bits), it is initially designed for 256-bit keys, offering flexibility for higher security needs.
+	6. Error Handling with Logging:
+	Advantage:
+	Comprehensive error handling ensures that any issues (e.g., invalid key, corrupted ciphertext, unsupported padding) are logged for debugging.
+	Prevent Crashes:
+	Instead of throwing unhandled exceptions, the code logs errors and provides fallback behavior (e.g., returning encryptedPasswordString).
+	7. Secure Session-Based Key Storage:
+	Advantage:
+	The secret key is retrieved from the user's session, providing a layer of separation between key storage and the application logic.
+	Security Benefit:
+	It reduces the chances of key exposure in transit or storage (assuming proper session security).
+	8. Strong Padding Mechanism:
+	Advantage:
+	The use of PKCS5Padding ensures proper handling of plaintext whose size is not a multiple of the AES block size (16 bytes).
+	Prevents Data Corruption:
+	Without proper padding, decryption might result in corrupted data.
+	9. Simplified Fallback Mechanism:
+	Advantage:
+	The check against DUMMY_PASSWORD and returning encryptedPasswordString as a fallback ensures backward compatibility or situations where decryption isn't required.
+	10. Cross-Language Interoperability:
+	Advantage:
+	The encryption process is designed with cross-language compatibility in mind (e.g., encrypt in JavaScript, decrypt in Java). This is especially useful for systems where clients and servers operate in different environments.
+	11. Maintainability:
+	Advantage:
+	The modular design of the methods makes the code easier to maintain and extend (e.g., support for other encryption algorithms or modes in the future).
+	Separation of Concerns:
+	Encryption key management (generateRandomSecretKey) is separate from decryption logic (passwordDecryption), adhering to clean coding practices.
+	12. Flexibility in Key Management:
+	Advantage:
+	The secret key is dynamically generated and can be managed securely. This eliminates the need for hardcoded keys, which are prone to compromise.
+	Customizability:
+	Applications can customize key size or reuse existing secure key management infrastructure.
+	13. Usability in Secure Applications:
+	Advantage:
+	The code can be integrated into applications requiring secure password management, such as:
+	Authentication systems.
+	Data protection modules.
+	Secure transmission of sensitive information.
+	14. Cryptographic Compliance:
+	Advantage:
+	AES and its configurations (e.g., CBC mode, PKCS5 padding) comply with industry standards, ensuring regulatory adherence (e.g., GDPR, HIPAA).
+	15. Prevention of Plaintext Storage:
+	Advantage:
+	The encryption ensures that no sensitive data (like passwords) is stored in plaintext, mitigating the risk of data breaches.
+	Overall Advantage Summary:
+	This code provides:
+
+	Robust Security: Through AES encryption, IV usage, and secure key generation.
+	Cross-Platform Interoperability: Via Base64 encoding and adherence to common cryptographic standards.
+	Scalability and Maintainability: Modular design and separation of concerns.
+	Error Resilience: Graceful error handling to ensure system reliability.
+	Feel free to ask further questions or request improvements!
+
+
+-----------------
+Technical Advantages of the Code
+	Robust Encryption Algorithm:
+
+	Uses AES (Advanced Encryption Standard), a secure and efficient encryption standard suitable for enterprise-grade applications.
+	CBC Mode with Initialization Vector (IV):
+
+	Enhances encryption by ensuring unique ciphertext even if the same plaintext is encrypted multiple times.
+	Prevents pattern analysis attacks.
+	Base64 Encoding:
+
+	Allows encrypted data and IV to be safely transmitted or stored in text-based formats like JSON or HTTP headers.
+	Ensures compatibility across different platforms (e.g., encrypt in JavaScript, decrypt in Java).
+	Secure Key Management:
+
+	Dynamically generates secret keys using a secure random number generator.
+	Stores keys in the session, reducing exposure risk and avoiding hardcoded keys.
+	Strong Padding Mechanism:
+
+	Uses PKCS5Padding to handle plaintext sizes that are not multiples of the AES block size (16 bytes).
+	Ensures decryption works seamlessly without data corruption.
+	Error Handling and Logging:
+
+	Comprehensive error handling with detailed logging of issues for debugging.
+	Prevents application crashes due to encryption or decryption failures.
+	Backward Compatibility:
+
+	Includes a fallback mechanism (DUMMY_PASSWORD) for scenarios where decryption isn't required or fails.
+	Reusable and Modular Design:
+
+	Separates encryption key generation (generateRandomSecretKey) and decryption logic (passwordDecryption).
+	Facilitates code reuse across multiple parts of an application.
+	Prevention of Plaintext Storage:
+
+	Ensures passwords and sensitive data are never stored in plaintext, reducing the risk of data breaches.
+	Cross-Language Interoperability:
+
+	Designed for compatibility with systems where encryption happens in one language (e.g., JavaScript) and decryption in another (e.g., Java).
+	Regulatory Compliance:
+
+	Adheres to cryptographic standards, making it suitable for applications requiring compliance with GDPR, HIPAA, or PCI-DSS.
+	Dynamic Key Generation:
+
+	Supports 256-bit key generation for higher security levels, with flexibility to adjust based on application needs.
+	Scalability:
+
+	Modular methods can handle multiple users or applications requiring secure encryption/decryption.
+	Prevention of Repeated Encryption Patterns:
+
+	IV usage ensures the same plaintext does not produce identical ciphertext, improving security.
+	Lightweight Fallback Mechanism:
+
+	Allows encrypted data to pass through unchanged if decryption isn't necessary or fails.
+	Cryptographic Flexibility:
+
+	Code can be extended to support other modes (e.g., GCM) or encryption algorithms as required.
+	Secure Transmission:
+
+	Encryption ensures secure transmission of sensitive data (e.g., passwords) over untrusted channels.
+	Cross-Platform Compatibility:
+
+	Base64 and UTF-8 encoding ensure the encryption and decryption process works seamlessly between clients and servers.
+	Ease of Maintenance:
+
+	Modular design makes the code easy to maintain, extend, and debug.
+	Enterprise-Ready Security:
+
+	Suitable for applications requiring high-security standards, such as authentication systems and secure data handling.
+
+	The code is designed for decrypting AES-encrypted passwords and generating random keys for encryption. In passwordDecryption, the AES cipher is configured in CBC mode with PKCS5Padding, using a secret key retrieved from the session and a Base64-decoded IV (Initialization Vector). It decrypts the encrypted password (also Base64-decoded) into plaintext and returns it. If decryption fails, an error is logged, and the encrypted password is returned as-is.
+
+	The generateRandomSecretKey method uses KeyGenerator to create a 256-bit AES key, encodes it in Base64, and adjusts its length for compatibility. Both methods rely on secure practices like Base64 encoding for safe data transmission and an IV for secure encryption. Key storage in the session is functional but could be improved using more secure key management solutions like HSMs or encrypted databases. The solution effectively uses cryptographic principles like symmetric encryption (AES) for secure password handling.
+
+=======================================================
+4. Password in Response
+
+	Issue:
+	In EDBS screen, the data source details are configured at UCCX end. These db details are of external databases which UCCX utilizes to connect to external databases. The data-source can be added or modified from UCCX Appadmin, During data-source modification, the current password can be viewed when the page source is viewed.
+
+	Solution : 
+
+	Don't refer the per-fetched password in any of the client side(Javascript) code using scriptlet tag ( <%=).
+	Don't store the per-fetched password in any of the hidden fields within the page.
+	Infact there is no need to get the existing DB password within the JSP, The necessary validations can be done at server side.
+
+===============
+5. Easily decodable password sent over HTTPS
+	Issue:
+	This issue is related to previous one (Password in Response vulnerability), In EDBS configure datasource screen, there was hidden field dspassword field which is a hidden was storing the existing data-source password. This was easily viewable from view page source which was was revealing the password.
+
+	Solution : 
+	The solution is to remove the dspassword hidden field. There is no need to store the existing password in a HTML screen, the same can be easily retrieved at the server side
+==========================
+6.Missing security headers
+	Issue:
+	The application has not implemented  Security headers like X-frame Options, CSP, HSTS, Xxs-protection,X-content-Type-Options etc during 302 redirection. For successful operations such as 200/201 OK, the security related response headers are added correctly however only during 302 redirect case only those headers are missing.
+
+	Solution : 
+	The solution is to add the below security headers for 302 redirection operations. These are added UccxAuthenticator.authenticateUser method
+
+	"X-Frame-Options	=> SAMEORIGIN
+	X-Xss-Protection	=> 1; mode=block
+	Strict-Transport-Security =>	max-age=31536000; includeSubDomains
+	Content-Security-Policy	=> default-src *; script-src * 'unsafe-inline' 'unsafe-eval';style-src * 'unsafe-inline'; img-src * data: 'unsafe-inline'; font-src * data:;
+	X-Content-Type-Options	=> nosniff
+-------------------------
+7. Log4j Migration 1.2.8 from 2.17.2 
+
+	Here  ROOTLoggerAppader is debricated,  for that log4j provided the dependency without modifing  implementation used with log4j-api, log4j-1.2-api and log4j-core.
+
+--------------------------------
+8. SOLR
+
+
+	SCvx11453-CIAM: solr 4.6.0 https://github.com/advisories/GHSA-2467-h365-j7hm and others. To fix CVE we upgrade solr version from 4.6 to 8.2.
+	The following PR contains Solr, Http-core, Http-client, jetty, groovy and gmaven-plugin changes.
+	Solr version upgraded from 4.6 to solr-client to 8.2.0 and solr -server to 8.11.2.
+	To fix compile time errors we upgraded http-core from 4.2.5 to 4.4.14 and http-client 4.2.6 to 4.5.13.
+	As per new version of solr we modified schema.xml, configurations files and added required supporting files.
+	Groovy using jetty, in jetty some packages and class deprecated and some packages changed. we changed accordingly.
+	While compile groovy files we got errors for that we upgraded groovy and gmaven-plugin versions.
+	SolrServer changed to SolrClient .
+	static private SolrServer _solrServer = null;
+	static private SolrClient _solrClient = null;
+	Solr rpm build failed. for this noarch package statements added.
+	_unpackaged_files_terminate_build 0
+	_binaries_in_noarch_packages_terminate_build 0
+	Solr client having log4j as a transitive dependency older version which has vulnerability. So we excluded from solr and added as direct dependency.
+	Solr having jetty as transitive dependency and we have jetty older version as direct dependency. when multiple versions of jetty in classpath give us runtime error. so we upgraded jetty to matching version of solr.
+	Jetty is using in some groovy script so we got compile time errors. Then we changed groovy files accordingly.
+	To compile latest version of groovy we upgraded gmaven-plugin and gmaven-runtime-2.0 versions.
+	In schema.xml lot of classes miggerated.
+	"solr.TrieIntField" precisionStep="8" to "solr.IntPointField".
+	"solr.DoubleField" to "solr.IntPointField"
+	"solr.StandardTokenizerFactory" to "solr.ThaiTokenizerFactory"
+	etc..
+	solr startup changed from 4.x to 8.x from jar start.jar --module=logging"
+	to -jar start.jar --module=http --module=http -Dsolr.log.dir=$CCBU_CC_HOME/logs/ccp-ds-indexer/server/logs".
+	During the switch version we are taking backup as json format 4.6 solr-indexer and afetr completetion of switch version deleted older indexer.
+	Then we are filter the indexer with python script for required field indexers.
+	After completetion of swtich version during stratup indexer restoring the json solr indexer to ccp-ds-indexer/bin.
+	For Solr Indexer Backup and Restore Batch process added new script.
+	Versions upgrades::
+	solr-client :: 4.6.0 --> 8.2.0
+	solr -server :: 4.6.0 --> 8.11.2
+	http-client :: 4.2.6 --> 4.5.13
+	http-core :: 4.2.5 --> 4.4.14
+	jetty :: 7.1.3.v20100526 --> 9.4.19.v20190610
+	groovy :: 1.8.5 --> 2.3.0
+	gmaven-plugin
+	gmaven :: 1.4 --> 1.5
+	gmaven-runtime:: gmaven-runtime-1.7 --> gmaven-runtime-2.0
+	Solr migration 4.x to 8.11.x
+	Solr Backup and Restore will impact switch version
+	Backup:
+	we are taking backup solr index during the switch version.
+	First we are checking the version is eligible for solrIndexer backup or not.(su Base ,su1,su2 and su3).
+	checking active and inactive version
+	depends on the versions if version required solrbackup then solr backup function will work
+	To work backup first we have to solr server and cassandra services must be in service (for this we have add solr service and cassandra condition check validation added during switch version)
+	First we are checking solr server is up or not, if not it will check until solr server up.
+	Then we are checking solr indexer and process is running or not .
+	We are providing solr end point with collection name.
+	We added no.of records for each batch mentioned as 50000
+	We are creating the directories for 1st stage backup from solr , second stage backup from solr json files and cassandra.
+	we are creating temporary directory for restore process (temporary batch files for the permissions issue).
+	If we have the directories already, it clean the directories.
+	setting the solr query URL for get records as json format retrieve as a response.
+	from the extract the number of records from the response.
+	numFound empty it will throws Error: Failed to extract the number of records found from the response. then it will fail switch version.
+	If the Index there it retrieve records from Solr using curl and store in a JSON file will process as the multiple json files with starting end index.It will store the files in the created directory.
+	Then it will start the second stage of solr Index from solr server json files and cassandra.
+	15.FOr backup from the cassandra, we adding explicitly python driver to connect cassnadra and for time conversion as for solr python-pytz packages to (These packages manually uploaded to nexus and bundled into ccp-ds-indexer zip package).
+	we are processing 1st stage of solr indexer files and cassandra with batch process each batch size 50000 records.
+	those files from one directories and processed with extra file name add as final stored in other directories.
+	If the some issue with 2nd stage of backup will use retry process, we trying first time 5 seconds sleep, 2nd time 10 seconds and 3rd it will sleep 30 if 3 times fails it fail switch version.
+	Removing the existing the solr version and cache Index.
+	Then switch version will completed successfully.
+	Restore:
+	Restore will start after switch versions completed during the ccp-ds-indexer startup.
+	First we are checking the version is eligible for solrIndexer restore or not.(su Base ,su1,su2 and su3).
+	checking active and inactive version
+	depends on the versions if version required solr restore required then solr restore function will work
+	To work restore first we have to solr server and ccp-ds-indexer services must in servcice.(check the services during startup).
+	If the solr Indexer is empty then this POST command work with update API.
+	It will pick from the directory, each file is processed with batch process each batch size is 12500.it will create temporary json file for each batch process it will remove at the end of the batch process.
+	With if the json file field to index will reties 3 times.then it will throw error.
+	other wise it process successfully.
+	It will show count of batch files for each json file.
+	It will showing how many files process totally show at the end.
+	Reference wiki: https://confluence-eng-sjc12.cisco.com/conf/display/UCCX/PSIRT_cscvx11453%3A+Solr+Migration+from+4.6+to+8.x
+
+-------------------===========================--------------------
+=================================================================
+Informix SSL/TLS Configuration for UCCX:
+
+	Using SSL With Informix
+
+	As networks have gotten more complex and networked systems have become more advanced it has greatly enhanced the need for security in your systems. Even if only doing internal connections, many auditors and security policies now require information to be encrypted end-to-end. While there are a number of ways to accomplish this for Informix, there is a native way to set up a SSL listener port to have fully encrypted communications.
+
+	The listener has a public/private keypair where the  private key to decrypt is on the server while a public key can be shared with clients. The public key itself is not as sensitive because the system will generate a new random key to encrypt the data after the initial keypair confirmation.
+
+	For the administrators all that needs to happen is to set up the key system, enable the SSL listener and get the client keys out to end users. The same client key process works for Linux, UNIX, and Windows clients.
+
+	The following example will show how to take a basic Informix instance, add in a SSL enabled listener and then set up a client to be able to connect.
+
+	Current Server Settings
+
+	DBSERVERNAME is test_tcp
+	Hostname is test_host
+	Standard TCP Listener Port is 9089
+
+
+
+	IBM Informix Dynamic Server Version 12.10.UC9W1X3 Software Serial Number AAA#B000000
+
+
+	Setting Up SSL Guide 
+
+	1) Modify the onconfig file, and add the following:
+
+	DBSERVERALIASES test_ssl
+	SSL_KEYSTORE_LABEL test_label
+	VPCLASS encrypt,num=2
+	NETTYPE socssl,1,50,NET
+
+
+	2) Add a new entry to the sqlhosts file to create a new SSL listener:
+	test_ssl onsocssl test_server 9089
+
+	Run the following steps from the directory $INFORMIXDIR/ssl
+	3) Create the keystore database. This should have the same name as your DBSERVERNAME:
+	gsk8capicmd_64 -keydb -create -db test_ssl.kdb -pw my_password -type cms -stash
+
+	4) Create a certificate for the server. Use the label specified for SSL_KEYSTORE_LABEL in the onconfig file:
+	gsk8capicmd_64 -cert -create -db test_ssl.kdb -pw my_password -label test_label -dn "CN=test server,O=mycompany.com,C=US" -size 2048 -default_cert yes
+
+	5) Extract the certificate in ascii format as test_ssl.cert to use it for clients:
+	gsk8capicmd_64 -cert -extract -db test_ssl.kdb -pw my_password -label test_label -target test_ssl.cert
+
+	6) Create the client keystore database:
+	gsk8capicmd_64 -keydb -create -db clikeydb.kdb -pw my_password -type cms -stash
+
+	7) Import the new certificate from test_ssl.cert to the client keyring:
+	gsk8capicmd_64 -cert -add -db clikeydb.kdb -pw my_password -label test_label -file test_ssl.cert -format ascii
+
+	8) Create a conssl.cfg file to tell clients the location of the keystore:
+	Edit $INFORMIXDIR/etc/conssl.cfg and add the following entries:
+	SSL_KEYSTORE_FILE /opt/informix/ssl/clikeydb.kdb
+	SSL_KEYSTORE_STH /opt/informix/ssl/clikeydb.sth
+
+	9) Restart Informix, you should see a new listener running. Use dbaccess to verify that you can connect using the new SSL listener, for example:
+
+	dbaccess sysmaster@test_ssl <<!
+	select count(*) from systables;
+	!
+
+	UCCX
+
+	Pre requisites:
+
+	./installgskit root location installation
+
+	 IBM Informix Dynamic Server Version 12.10.UC9W1X3 Software Serial Number AAA#B000000
+
+	step 1:
+
+	cd /usr/local/cm/db/informix/etc
+
+	step 2:
+
+	ls -ltr | grep onconfig
+
+	vi onconfig.uccx    // updated below configuration in this file.
+
+	#######TLS-Connection configuratiion -START#######################
+	DBSERVERALIASES ccx_94_191_uccx_tls
+	SSL_KEYSTORE_LABEL uccx_label
+	VPCLASS encrypt,num=2
+	NETTYPE socssl,3,50,NET
+	#############TLS-Connection configuration -END#############
+
+	step 3:
+
+	ls -ltr | grep sqlhosts
+
+	vi sqlhosts.uccx         //Add a new entry to the sqlhosts file to create a new SSL listener
+
+	#######TLS-Connection configuratiion -START#######################
+
+	ccx_94_191_uccx_tls         onsocssl            ccx-94-191          9089
+	#############TLS-Connection configuration -END###################
+
+	step 4:
+
+	  cd /usr/local/cm/db/informix/gskit
+
+	./installgskit
+
+	It will be install in path : /usr/local/ibm/gsk8/bin/gsk8capicmd
+	execute below cmd for soft links 
+
+	ln -s /usr/local/ibm/gsk8/lib/libgsk8acmeidup.so /usr/lib/
+	ln -s /usr/local/ibm/gsk8/lib/libgsk8cms.so /usr/lib/
+	ln -s /usr/local/ibm/gsk8/lib/libgsk8dbfl.so /usr/lib/
+	ln -s /usr/local/ibm/gsk8/lib/libgsk8drld.so /usr/lib/
+	ln -s /usr/local/ibm/gsk8/lib/libgsk8iccs.so /usr/lib/
+	ln -s /usr/local/ibm/gsk8/lib/libgsk8kicc.so /usr/lib/
+	ln -s /usr/local/ibm/gsk8/lib/libgsk8km2.so /usr/lib/
+	ln -s /usr/local/ibm/gsk8/lib/libgsk8km.so /usr/lib/
+	ln -s /usr/local/ibm/gsk8/lib/libgsk8ldap.so /usr/lib/
+	ln -s /usr/local/ibm/gsk8/lib/libgsk8p11.so /usr/lib/
+	ln -s /usr/local/ibm/gsk8/lib/libgsk8ssl.so /usr/lib/
+	ln -s /usr/local/ibm/gsk8/lib/libgsk8sys.so /usr/lib/
+	ln -s /usr/local/ibm/gsk8/lib/libgsk8valn.so /usr/lib/
+
+	ls -l /usr/lib/*gsk*
+
+	step 5:
+
+	cd $INFORMIXDIR/ssl              ##### /usr/local/cm/db/informix/ssl
+
+	switch Informix user 
+	cmd: su informix
+
+	step 6:
+
+	execute source  cmd
+	source /opt/cisco/uccx/bin/uccx_ids.env
+
+	export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/ibm/gsk8/lib
+
+	step 7: Create the keystore database. This should have the same name as your DBSERVERNAME:
+
+	/usr/local/ibm/gsk8/bin/gsk8capicmd  -keydb -create -db ccx_94_191_uccx.kdb -pw 13Ccbu13 -type cms -stash
+
+	step 8: Create a certificate for the server. Use the label specified for SSL_KEYSTORE_LABEL in the onconfig file:
+
+	/usr/local/ibm/gsk8/bin/gsk8capicmd  -cert -create -db ccx_94_191_uccx.kdb -pw 13Ccbu13 -label uccx_label -dn "CN=ccx_94_191_uccx_ssl,O=uccxwipro.com,C=US" -size 2048 -default_cert yes
+
+	step 9: Extract the certificate in ascii format as ccx_94_191_uccx_tls.cert to use it for clients:
+
+	/usr/local/ibm/gsk8/bin/gsk8capicmd  -cert -extract -db  ccx_94_191_uccx.kdb -pw 13Ccbu13 -label uccx_label -target  ccx_94_191_uccx.cert
+
+
+	Client certificate 
+	step 10: Create the client keystore database:
+
+	/usr/local/ibm/gsk8/bin/gsk8capicmd -keydb -create -db uccx_clikeydb.kdb -pw 13Ccbu13 -type cms -stash
+
+	step 11: Import the new certificate from test_ssl.cert to the client keyring:
+
+	/usr/local/ibm/gsk8/bin/gsk8capicmd -cert -add -db uccx_clikeydb.kdb -pw 13Ccbu13 -label uccx_label -file ccx_94_191_uccx_ssl.cert -format ascii
+
+
+	step 12: Create a conssl.cfg file to tell clients the location of the keystore:
+	Edit $INFORMIXDIR/etc/conssl.cfg and add the following entries:
+
+	SSL_KEYSTORE_FILE /usr/local/cm/db/informix/ssl/uccx_clikeydb.kdb
+	SSL_KEYSTORE_STH /usr/local/cm/db/informix/ssl/uccx_clikeydb.sth
+
+	step 13:  Restart Informix, you should see a new listener running. Use dbaccess to verify that you can connect using the new SSL listener,
+	need to restart Informix. Or system.
+	controlcenter.sh "Cisco Unified CCX Database" restart
+
+
+
+	Sample Test program with TLS Connection:
+
+
+	import java.sql.CallableStatement;
+	import java.sql.Connection;
+	import java.sql.DriverManager;
+	import java.sql.ResultSet;
+	import java.sql.SQLException;
+	import java.sql.Timestamp;
+
+	public class UccxSkillTLS {
+			public static void main(String[] args) throws Exception {
+
+
+
+					String url = "jdbc:informix-sqli://192.168.1.31:9089/db_cra:INFORMIXSERVER=uccx_192168131_uccx_tls;user=informix;password=1ac5a76d1c76;SSLCONNECTION=TRUE;SSL_TRUSTSTORE=/root/_mykeystore.keystore;SSL_TRUSTSTORE_PASSWORD=13Ccbu13";
+					Connection conn = null;
+					CallableStatement cstmt = null;
+					try {
+							Class.forName("com.informix.jdbc.IfxDriver");
+							conn = DriverManager.getConnection(url);
+							Boolean connStatus = isDbConnected(conn);
+							System.out.println("Connection status:" + connStatus);
+							cstmt = conn.prepareCall("select * from skill");
+							cstmt.execute();
+						ResultSet rs = cstmt.executeQuery();
+							int size = 0;
+							System.out.println("####Skills####\n");
+							while (rs.next()) {
+							System.out.println(rs.getString("skillname"));
+									size++;
+							}
+							System.out.println("Results size:: "+size);
+					} catch (ClassNotFoundException e) {
+							System.out.println("ClassNotFoundException:error while loading informix driver");
+							e.printStackTrace();
+							return;
+					} catch (SQLException e) {
+							System.out.println("SQLException");
+							e.printStackTrace();
+					}
+
+			}
+
+			public static boolean isDbConnected(Connection con) {
+					try {
+
+							return con != null && !con.isClosed();
+					} catch (SQLException ignored) {
+					}
+
+					return false;
+			}
+	}
+
+
+	To run the the with TLS
+	Need to generate keystore
+
+	Generate keystore:
+	keytool -importcert -file server1.cert -alias server1 -keystore .keystore
+	cmd: keytool -importcert -file ccx_94_191_uccx.cert -alias server1 -keystore _mykeystore.keystore
+
+	cmd:  keytool -importcert -file /usr/local/cm/db/informix/ssl/ccx_94_191_uccx.cert -alias server1 -keystore _mykeystore.keystore
+
+	compile the program:
+
+	cmd: javac InformixConnection_TLS.java
+	cmd: java -Djavax.net.ssl.trustStore=/root/_mykeystore.keystore -Djavax.net.ssl.trustStorePassword=13Ccbu13 UccxSkillTLS
+
+
+	Useful Commands:
+
+	Logs: /common/log/taos-log-a/uccx/log/db/online.uccx.log
+
+	/opt/cisco/uccx/log/db/online.uccx.log
+
+	$INFORMIXDIR/etc/sqlhosts.uccx
+
+	$INFORMIXDIR/etc/sqlhosts.uccx
+
+	source /opt/cisco/uccx/bin/uccx_ids.env
+
+	/opt/cisco/uccx/bin/UccxDB.sh
+
+	/usr/local/cm/db/informix/tmp
+
+	Ps -ef | grep informix
+
+	To stop the database server, run the onmode -ku
+
+	To start the database server, run the oninitYou can include options to the oninit command. For example, you suppress verification prompts by running the oninit -y command.
+
+	onstat -   
+
+	onstat -g glo
+
+	onmode -ky // Normal Shutdown: stop server
+
+	oninit -v // start the server
+
+	onmode -kuy //  Immediate Shutdown:
+
+
+
+	onstat -c | grep DBSER
+	cd $INFORMIXDIR/ssl
+	onstat -c | grep TLS
+
+	select * from skill;
+
+	env | grep SQL
+
+	vi /usr/local/cm/db/informix/etc/sqlhosts.uccx
+
+	grep uccx1_192168125_uccx_tls /usr/local/cm/db/informix/etc/sqlhosts.uccx
+	/usr/local/ibm/gsk8/lib
+
+	netstat -tulpn | grep 9089
+
+	================
+	source /opt/cisco/uccx/bin/uccx_ids.env
+
+	chown informix:informix *
+	ls -l /usr/lib/*gsk*
+
+
+----------------------
+==============================
+Extra Information:
+
+
+CCP: Spring migration from 4.6.x to 5.3.39 version
+	Spring migration  from 4.6.x to 5.3.39 version ompleted tested with private ISO and need to work on failure testcases.
+Wiki: https://confluence-eng-gpk2.cisco.com/conf/display/UCCX/CSCwh85490+CCP+Migration+Spring+-2024
+
+Branchs:
+Ticket: CES-24289
+SM/CCP: https://github4-chn.cisco.com/ccbu-sm/sm/tree/main_64bit_spring
+PR:https://github4-chn.cisco.com/ccbu-sm/sm/pull/1749
+CCBU-COMMONs: https://github4-chn.cisco.com/ccbu-shared/ccbu-common/tree/main_spring
+---
+Deploy;
+SM JOB: https://rtp-jaguar.cisco.com:8443/jenkins/view/SM/job/CCP_1501_SPRING_DEPLOY/
+CCBU_COMMONs: https://rtp-jaguar.cisco.com:8443/jenkins/job/CJC_1501_SPRING_DEPLOY/
+---
+PR's:
+https://github4-chn.cisco.com/ccbu-sm/sm/pull/1747
+https://github4-chn.cisco.com/ccbu-shared/ccbu-common/pull/656/
+---
+Customer Disipostion Form:
+https://confluence-eng-gpk2.cisco.com/conf/display/UCCX/PSIRT%3A+Customer+Disposition+Request+%3A-Evaluation+of+CVE+vulnerability+UCCX+and+CCP 
+---
+CCX: Spring migration 3.1. to 5.3.39 version(Level1: 4.x and Level2: 5.3.39 version)
+	3.x to 4.x migration completed here is the issue in UI need to work on this.
+	4.x to 5.3.39 to fix all vuluerabilities.
+wiki: https://confluence-eng-gpk2.cisco.com/conf/display/UCCX/PSIRT%3ASPRING_UCCX+CVE%27s+Analysis++and+Migration.
+---
+PSIRT vuluerabilities Anaylsis wiki:
+	https://confluence-eng-gpk2.cisco.com/conf/display/UCCX/PSIRT+Vulnerability+Analysis
+---
+Github Alters:
+	https://confluence-eng-gpk2.cisco.com/conf/display/UCCX/GitHub+Alters+for+UCCX%2C+CCP%2C+SocketIO+and+CCBU-Commons-2024
+---
+CSCwj78211&CSCwj78214 Root Shell Access via VMware Tools : 
+	Verified in Private Build with Cvos 15Su2 sync, need to verify in main CTG builds.
+---
+UCCX_CSCwk24099_PSIRT: Excessive sudo privileges for 'admin' and 'tomcat' users.
+		Need to Verify in 15Su2 sync builds, and share the box deatils to daniel(PSIRT Team) take confirmation and move bug R and V.
+---
+CSCwk53587	CCX 12.5 Weak ciphers identified in the scan result and need to be rectified.
+		Raised CDETS to CVOS team, Need to check on this fix with platform team.
+---
+Log4j Migration for CCBU-COMMONs and CCP/SM from 1.x multiple versions to 2.18.0
+
+Log4J wiki :https://confluence-eng-gpk2.cisco.com/conf/pages/viewpage.action?pageId=449119202
+Reference PR's:
+SM Log4J : https://github4-chn.cisco.com/ccbu-sm/sm/pull/1601
+CCBU_COMMONS : https://github4-chn.cisco.com/ccbu-shared/ccbu-common/pull/567/files
+https://github4-chn.cisco.com/ccbu-shared/ccbu-common/pull/567/
+https://github4-chn.cisco.com/ccbu-shared/ccbu-common/pull/460/
+For other PR's serach with iporval and srikbhas userid
+---
+PSIRT_ Xstream, xml-apis and xercesImpl update for ROOT.war in SM/CCP
+	https://github4-chn.cisco.com/ccbu-shared/ccbu-common/pull/619
+	once shinding server version issue fix cross verify wiht latest ISO and Merge this Code changes.
+---
+PSIRT Scrubber links:
+https://wwwin-ottawa.cisco.com/tfoggoa/Scrubber/showquery.html?query=vinnatar-14
+https://wwwin-ottawa.cisco.com/tfoggoa/Scrubber/showquery.html?query=vinnatar-15
