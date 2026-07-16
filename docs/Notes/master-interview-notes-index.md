@@ -29,18 +29,16 @@ This is the combined entry point for all interview preparation notes under `docs
 
 ### Frontend and Full-Stack
 - [Frontend and Full-Stack notes home](<./FRONTEND-FULLSTACK Notes/README.md>)
-- [Build tooling deep notes](<./FRONTEND-FULLSTACK Notes/build-tooling-vite-webpack-typescript-deep-notes.md>)
 - [React and Next.js frontend engineering deep notes](<./FRONTEND-FULLSTACK Notes/react-nextjs-frontend-engineering-deep-notes.md>)
 - [Frontend testing deep notes](<./FRONTEND-FULLSTACK Notes/frontend-testing-deep-notes.md>)
-- [Browser internals, web platform security, and caching deep notes](<./FRONTEND-FULLSTACK Notes/browser-internals-web-platform-security-deep-notes.md>)
-- [Authentication systems deep notes](<./FRONTEND-FULLSTACK Notes/authentication-systems-oauth2-jwt-session-multitenant-deep-notes.md>)
-- [Serverless and edge functions deep notes](<./FRONTEND-FULLSTACK Notes/serverless-edge-functions-deep-notes.md>)
-- [Observability and telemetry deep notes](<./FRONTEND-FULLSTACK Notes/observability-and-telemetry-deep-notes.md>)
-- [Full-stack real-world flows deep notes](<./FRONTEND-FULLSTACK Notes/fullstack-real-world-flows-deep-notes.md>)
-- [Frontend interview questions: beginner to 6 years](<./FRONTEND-FULLSTACK Notes/frontend-interview-questions-beginner-to-6-years.md>)
+- [Frontend interview questions: beginner 0 to 2 years](<./FRONTEND-FULLSTACK Notes/frontend-interview-questions-beginner-0-to-2-years.md>)
+- [Frontend interview questions: intermediate 2 to 4 years](<./FRONTEND-FULLSTACK Notes/frontend-interview-questions-intermediate-2-to-4-years.md>)
+- [Frontend interview questions: experienced 4 to 6 years](<./FRONTEND-FULLSTACK Notes/frontend-interview-questions-experienced-4-to-6-years.md>)
 - [Frontend interview questions with short and better answers](<./FRONTEND-FULLSTACK Notes/frontend-interview-questions-with-short-and-better-answers.md>)
 - [Frontend coding questions with solutions](<./FRONTEND-FULLSTACK Notes/frontend-coding-questions-with-solutions.md>)
-- [Frontend and full-stack mock interview rounds](<./FRONTEND-FULLSTACK Notes/frontend-fullstack-mock-interview-rounds.md>)
+- [Frontend troubleshooting scenarios with ideal answers](<./FRONTEND-FULLSTACK Notes/frontend-troubleshooting-scenarios-with-ideal-answers.md>)
+- [Frontend senior 5 to 7 years production interview guide](<./FRONTEND-FULLSTACK Notes/frontend-senior-5-to-7-years-production-interview-guide.md>)
+- [Full-stack senior 5 to 7 years production interview guide](<./FRONTEND-FULLSTACK Notes/fullstack-senior-5-to-7-years-production-interview-guide.md>)
 
 ### Python
 - [Python notes home](./PYTHON/README.md)
@@ -60,17 +58,16 @@ This is the combined entry point for all interview preparation notes under `docs
 - [SQL and RDBMS deep notes](<./DATABASES Notes/SQL/sql-rdbms-deep-notes.md>)
 - [PostgreSQL deep notes](<./DATABASES Notes/SQL/postgresql-deep-notes.md>)
 - [Database performance, scale, and reliability deep notes](<./DATABASES Notes/SQL/database-performance-scale-and-reliability-deep-notes.md>)
-- [MongoDB deep notes](<./DATABASES Notes/NOSQL/mongodb-deep-notes.md>)
-- [Cassandra deep notes](<./DATABASES Notes/NOSQL/cassandra-deep-notes.md>)
 - [Redis deep notes](<./DATABASES Notes/NOSQL/redis-deep-notes.md>)
 - [Redis interview questions with short and better answers](<./DATABASES Notes/NOSQL/redis-interview-questions-with-short-and-better-answers.md>)
-- [Solr deep notes](<./DATABASES Notes/SEARCH/solr-deep-notes.md>)
+- [Redis troubleshooting scenarios with ideal answers](<./DATABASES Notes/NOSQL/redis-troubleshooting-scenarios-with-ideal-answers.md>)
 
 ### REST API
 - [REST API notes home](<./REST-API Notes/README.md>)
 - [REST API deep notes](<./REST-API Notes/rest-api-deep-notes.md>)
 - [API alternatives: GraphQL, gRPC, WebSocket, and SSE](<./REST-API Notes/api-alternatives-graphql-grpc-websocket-sse-deep-notes.md>)
 - [API alternatives interview questions with short and better answers](<./REST-API Notes/api-alternatives-interview-questions-with-short-and-better-answers.md>)
+- [API alternatives scenarios and architecture tradeoffs](<./REST-API Notes/api-alternatives-scenarios-and-architecture-tradeoffs.md>)
 - [REST API interview questions](<./REST-API Notes/rest-api-interview-questions-beginner-to-6-years.md>)
 
 ### Linux
